@@ -1,10 +1,15 @@
-
+import Smile from "./pages/Smile";
+import Home from "./pages/Home";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
 
   return (
-    <div className="flex justify-center items-center h-screen w-screen bg-white">
-      Hello Template
+    <div className="h-screen w-screen bg-white">
+      <Routes>
+        <Route index element={<Home />} />
+        <Route path="Smile" element={<Smile />} />
+      </Routes>
     </div>
   );
 }
