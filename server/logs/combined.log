@@ -1,0 +1,52 @@
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server ready at http://localhost:8888/graphql\u001b[39m","timestamp":"2025-06-21 15:07:23:723"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📊 Health check available at http://localhost:8888/health\u001b[39m","timestamp":"2025-06-21 15:07:23:723"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-21 15:07:23:723"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mGET /graphql - ::1\u001b[39m","timestamp":"2025-06-21 15:07:36:736"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mGET / - 200 - 2ms\u001b[39m","timestamp":"2025-06-21 15:07:36:736"}
+{"duration":3,"ip":"::1","level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRequest metrics:\u001b[39m","method":"GET","statusCode":200,"timestamp":"2025-06-21 15:07:36:736","url":"/","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mGET /health - ::1\u001b[39m","timestamp":"2025-06-21 15:07:44:744"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mGET /health - 200 - 15ms\u001b[39m","timestamp":"2025-06-21 15:07:44:744"}
+{"duration":15,"ip":"::1","level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRequest metrics:\u001b[39m","method":"GET","statusCode":200,"timestamp":"2025-06-21 15:07:44:744","url":"/health","userAgent":"Go-http-client/1.1"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST /graphql - ::1\u001b[39m","timestamp":"2025-06-21 15:07:55:755"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST / - 200 - 6ms\u001b[39m","timestamp":"2025-06-21 15:07:55:755"}
+{"duration":6,"ip":"::1","level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRequest metrics:\u001b[39m","method":"POST","statusCode":200,"timestamp":"2025-06-21 15:07:55:755","url":"/","userAgent":"curl/8.7.1"}
+{"cpu":{"usage":1},"database":"healthy","level":"\u001b[32minfo\u001b[39m","memory":{"percentage":86,"total":24,"used":21},"message":"\u001b[32mSystem metrics:\u001b[39m","timestamp":"2025-06-21 15:08:23:823","uptime":65.044906666}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST /graphql - ::1\u001b[39m","timestamp":"2025-06-21 15:09:06:96"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mUser test@example.com registered successfully\u001b[39m","timestamp":"2025-06-21 15:09:06:96"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST / - 200 - 313ms\u001b[39m","timestamp":"2025-06-21 15:09:06:96"}
+{"duration":313,"ip":"::1","level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRequest metrics:\u001b[39m","method":"POST","statusCode":200,"timestamp":"2025-06-21 15:09:06:96","url":"/","userAgent":"curl/8.7.1"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST /graphql - ::1\u001b[39m","timestamp":"2025-06-21 15:09:21:921"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mTransaction created for user 1: 1\u001b[39m","timestamp":"2025-06-21 15:09:21:921"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST / - 200 - 13ms\u001b[39m","timestamp":"2025-06-21 15:09:21:921"}
+{"duration":13,"ip":"::1","level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRequest metrics:\u001b[39m","method":"POST","statusCode":200,"timestamp":"2025-06-21 15:09:21:921","url":"/","userAgent":"curl/8.7.1"}
+{"cpu":{"usage":2},"database":"healthy","level":"\u001b[32minfo\u001b[39m","memory":{"percentage":89,"total":24,"used":21},"message":"\u001b[32mSystem metrics:\u001b[39m","timestamp":"2025-06-21 15:09:23:923","uptime":125.04601375}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST /graphql - ::1\u001b[39m","timestamp":"2025-06-21 15:09:29:929"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST / - 200 - 7ms\u001b[39m","timestamp":"2025-06-21 15:09:29:929"}
+{"duration":8,"ip":"::1","level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRequest metrics:\u001b[39m","method":"POST","statusCode":200,"timestamp":"2025-06-21 15:09:29:929","url":"/","userAgent":"curl/8.7.1"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST /graphql - ::1\u001b[39m","timestamp":"2025-06-21 15:09:38:938"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST / - 200 - 35ms\u001b[39m","timestamp":"2025-06-21 15:09:38:938"}
+{"duration":35,"ip":"::1","level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRequest metrics:\u001b[39m","method":"POST","statusCode":200,"timestamp":"2025-06-21 15:09:38:938","url":"/","userAgent":"curl/8.7.1"}
+{"cpu":{"usage":2},"database":"healthy","level":"\u001b[32minfo\u001b[39m","memory":{"percentage":90,"total":24,"used":22},"message":"\u001b[32mSystem metrics:\u001b[39m","timestamp":"2025-06-21 15:10:23:1023","uptime":185.047267208}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server ready at http://localhost:8888/graphql\u001b[39m","timestamp":"2025-06-21 15:16:44:1644"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📊 Health check available at http://localhost:8888/health\u001b[39m","timestamp":"2025-06-21 15:16:44:1644"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-21 15:16:44:1644"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mGET /graphql - ::1\u001b[39m","timestamp":"2025-06-21 15:16:47:1647"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mGET / - 200 - 3ms\u001b[39m","timestamp":"2025-06-21 15:16:47:1647"}
+{"duration":4,"ip":"::1","level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRequest metrics:\u001b[39m","method":"GET","statusCode":200,"timestamp":"2025-06-21 15:16:47:1647","url":"/","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mReceived SIGTERM. Starting graceful shutdown...\u001b[39m","timestamp":"2025-06-21 15:17:35:1735"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mReceived SIGTERM. Starting graceful shutdown...\u001b[39m","timestamp":"2025-06-21 15:17:35:1735"}
+{"cpu":{"usage":1},"database":"healthy","level":"\u001b[32minfo\u001b[39m","memory":{"percentage":87,"total":23,"used":20},"message":"\u001b[32mSystem metrics:\u001b[39m","timestamp":"2025-06-21 15:17:44:1744","uptime":60.717550125}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mHTTP server closed\u001b[39m","timestamp":"2025-06-21 15:17:50:1750"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mHTTP server closed\u001b[39m","timestamp":"2025-06-21 15:17:50:1750"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mApollo server stopped\u001b[39m","timestamp":"2025-06-21 15:17:50:1750"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mApollo server stopped\u001b[39m","timestamp":"2025-06-21 15:17:50:1750"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mDatabase disconnected\u001b[39m","timestamp":"2025-06-21 15:17:50:1750"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server ready at http://localhost:8888/graphql\u001b[39m","timestamp":"2025-06-21 15:17:50:1750"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📊 Health check available at http://localhost:8888/health\u001b[39m","timestamp":"2025-06-21 15:17:50:1750"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-21 15:17:50:1750"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mReceived SIGINT. Starting graceful shutdown...\u001b[39m","timestamp":"2025-06-21 15:18:43:1843"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mHTTP server closed\u001b[39m","timestamp":"2025-06-21 15:18:43:1843"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mReceived SIGINT. Starting graceful shutdown...\u001b[39m","timestamp":"2025-06-21 15:18:43:1843"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mHTTP server closed\u001b[39m","timestamp":"2025-06-21 15:18:43:1843"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mApollo server stopped\u001b[39m","timestamp":"2025-06-21 15:18:43:1843"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mDatabase disconnected\u001b[39m","timestamp":"2025-06-21 15:18:43:1843"}
