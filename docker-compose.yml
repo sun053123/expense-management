@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   db:
@@ -7,7 +7,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: appdb
+      POSTGRES_DB: expense_management
     ports:
       - "5432:5432"
     volumes:
@@ -25,7 +25,7 @@ services:
       - db
     command: sh -c "npm install && npm run build && npm start"
     ports:
-      - "5000:5000"
+      - "8080:8080"
 
   client:
     image: node:20

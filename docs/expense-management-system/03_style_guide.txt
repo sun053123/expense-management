@@ -1,0 +1,200 @@
+d Testing
+```jsx
+import { render, screen, fireEvent } from '@testing-library/react';
+import TransactionForm from './TransactionForm';
+
+describe('TransactionForm', () => {
+  it('should submit form with valid data', async () => {
+    const handleSubmit = jest.fn();
+    
+    render(<TransactionForm onSubmit={handleSubmit} />);
+    
+    fireEvent.change(screen.getByLabelText('Amount'), {
+      target: { value: '150' }
+    });
+    
+    fireEvent.change(screen.getByLabelText('Description'), {
+      target: { value: 'Test transaction' }
+    });
+    
+    fireEvent.click(screen.getByText('Submit'));
+    
+    expect(handleSubmit).toHaveBeenCalledWith({
+      amount: 150,
+      description: 'Test transaction',
+      type: 'expense'
+    });
+  });
+});
+```
+
+## Performance Guidelines
+
+### Backend Optimization
+```javascript
+// Use pagination for large datasets
+const getPaginatedTransactions = async (req, res) => {
+  const page = parseInt(req.query.page) || 1;
+  const limit = parseInt(req.query.limit) || 10;
+  const skip = (page - 1) * limit;
+  
+  const [transactions, total] = await Promise.all([
+    Transaction.find({ userId: req.user.userId })
+      .sort({ date: -1 })
+      .limit(limit)
+      .skip(skip)
+      .lean(), // Use lean() for better performance
+    Transaction.countDocuments({ userId: req.user.userId })
+  ]);
+  
+  res.json({
+    success: true,
+    data: transactions,
+    pagination: {
+      page,
+      limit,
+      total,
+      pages: Math.ceil(total / limit)
+    }
+  });
+};
+```
+
+### Frontend Optimization
+```jsx
+// Use React.memo for expensive components
+const ExpenseChart = React.memo(({ data }) => {
+  // Chart rendering logic
+  return <canvas id="expense-chart" />;
+}, (prevProps, nextProps) => {
+  // Custom comparison function
+  return JSON.stringify(prevProps.data) === JSON.stringify(nextProps.data);
+});
+
+// Use debouncing for search
+const useDebounce = (value, delay) => {
+  const [debouncedValue, setDebouncedValue] = useState(value);
+  
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+    
+    return () => clearTimeout(handler);
+  }, [value, delay]);
+  
+  return debouncedValue;
+};
+```
+
+## Deployment Configuration
+
+### Dockerfile Standards
+```dockerfile
+# Backend Dockerfile
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install production dependencies
+RUN npm ci --only=production
+
+# Copy application files
+COPY . .
+
+# Create non-root user
+RUN addgroup -g 1001 -S nodejs
+RUN adduser -S nodejs -u 1001
+
+# Change ownership
+RUN chown -R nodejs:nodejs /app
+
+USER nodejs
+
+EXPOSE 5000
+
+CMD ["node", "server.js"]
+```
+
+### Docker Compose Configuration
+```yaml
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    environment:
+      - NODE_ENV=production
+      - MONGODB_URI=${MONGODB_URI}
+      - JWT_SECRET=${JWT_SECRET}
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
+    
+  frontend:
+    build: ./frontend
+    environment:
+      - REACT_APP_API_URL=http://backend:5000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    restart: unless-stopped
+```
+
+## Environment Configuration
+
+### Development Environment
+```env
+# .env.development
+NODE_ENV=development
+PORT=5000
+MONGODB_URI=mongodb://localhost:27017/expense-tracker-dev
+JWT_SECRET=dev-secret-key-change-in-production
+JWT_EXPIRE=7d
+```
+
+### Production Environment
+```env
+# .env.production
+NODE_ENV=production
+PORT=5000
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/expense-tracker
+JWT_SECRET=strong-random-secret-key-here
+JWT_EXPIRE=7d
+```
+
+## Accessibility Standards
+
+### React Components
+```jsx
+// Ensure proper ARIA labels and semantic HTML
+const TransactionForm = () => {
+  return (
+    <form role="form" aria-label="Add transaction">
+      <div>
+        <label htmlFor="amount" className="block text-sm font-medium">
+          Amount *
+        </label>
+        <input
+          id="amount"
+          type="number"
+          aria-required="true"
+          aria-describedby="amount-error"
+          className="mt-1 block w-full rounded-md border-gray-300"
+        />
+        <span id="amount-error" className="text-red-500 text-sm" role="alert">
+          {/* Error message */}
+        </span>
+      </div>
+    </form>
+  );
+};
+```
+
+## Summary
+
+This style guide ensures consistent, maintainable, and high-quality code across the Expense Management System. Following these standards will help maintain code quality, improve collaboration, and ensure the application is secure, performant, and accessible.

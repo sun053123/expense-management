@@ -1,0 +1,245 @@
+# Knowledge Base Template
+
+## Business Context Template
+
+### Project Overview
+```
+Project Name: [PROJECT_NAME]
+Domain: [BUSINESS_DOMAIN]
+Purpose: [PRIMARY_BUSINESS_PURPOSE]
+```
+
+The [PROJECT_NAME] is a [SYSTEM_TYPE] in the [ORGANIZATION] [DOMAIN] that serves as [BUSINESS_FUNCTION]. It's part of the [ARCHITECTURE_CONTEXT] architecture.
+
+### Business Value Proposition
+- [VALUE_PROPOSITION_1]
+- [VALUE_PROPOSITION_2]
+- [VALUE_PROPOSITION_3]
+
+### Key Stakeholders
+- **[STAKEHOLDER_ROLE_1]**: [RESPONSIBILITIES_AND_INTERESTS]
+- **[STAKEHOLDER_ROLE_2]**: [RESPONSIBILITIES_AND_INTERESTS]
+- **[STAKEHOLDER_ROLE_3]**: [RESPONSIBILITIES_AND_INTERESTS]
+
+## Technical Purpose Template
+
+The [PROJECT_NAME] acts as [TECHNICAL_FUNCTION] between [SYSTEM_A] and [SYSTEM_B]. It [PRIMARY_TECHNICAL_PURPOSE].
+
+### Core Technical Functions
+1. **[FUNCTION_1]**: [DESCRIPTION]
+2. **[FUNCTION_2]**: [DESCRIPTION]
+3. **[FUNCTION_3]**: [DESCRIPTION]
+4. **[FUNCTION_4]**: [DESCRIPTION]
+
+### Integration Points
+- **Upstream Systems**: [UPSTREAM_SYSTEMS_LIST]
+- **Downstream Systems**: [DOWNSTREAM_SYSTEMS_LIST]
+- **Data Sources**: [DATA_SOURCES_LIST]
+- **External APIs**: [EXTERNAL_APIS_LIST]
+
+## Architecture Overview Template
+
+The [PROJECT_NAME] follows a [ARCHITECTURE_PATTERN] pattern with the following components:
+
+### System Architecture
+```
+[ASCII_DIAGRAM_OR_DESCRIPTION]
+```
+
+### Core Components
+
+#### 1. [COMPONENT_NAME_1]
+- **Purpose**: [COMPONENT_PURPOSE]
+- **Responsibilities**: [COMPONENT_RESPONSIBILITIES]
+- **Key Classes/Modules**: [KEY_CLASSES]
+- **Dependencies**: [COMPONENT_DEPENDENCIES]
+
+#### 2. [COMPONENT_NAME_2]
+- **Purpose**: [COMPONENT_PURPOSE]
+- **Responsibilities**: [COMPONENT_RESPONSIBILITIES]
+- **Key Classes/Modules**: [KEY_CLASSES]
+- **Dependencies**: [COMPONENT_DEPENDENCIES]
+
+#### 3. [COMPONENT_NAME_3]
+- **Purpose**: [COMPONENT_PURPOSE]
+- **Responsibilities**: [COMPONENT_RESPONSIBILITIES]
+- **Key Classes/Modules**: [KEY_CLASSES]
+- **Dependencies**: [COMPONENT_DEPENDENCIES]
+
+### Technology Stack
+- **Language**: [PROGRAMMING_LANGUAGE]
+- **Framework**: [PRIMARY_FRAMEWORK]
+- **Database**: [DATABASE_TECHNOLOGY]
+- **Message Queue**: [MESSAGING_SYSTEM]
+- **Caching**: [CACHING_SOLUTION]
+- **Monitoring**: [MONITORING_TOOLS]
+- **Deployment**: [DEPLOYMENT_PLATFORM]
+
+## Data Model Template
+
+### Core Entities
+```
+[ENTITY_NAME_1]:
+- [FIELD_1]: [TYPE] - [DESCRIPTION]
+- [FIELD_2]: [TYPE] - [DESCRIPTION]
+- [FIELD_3]: [TYPE] - [DESCRIPTION]
+
+[ENTITY_NAME_2]:
+- [FIELD_1]: [TYPE] - [DESCRIPTION]
+- [FIELD_2]: [TYPE] - [DESCRIPTION]
+- [FIELD_3]: [TYPE] - [DESCRIPTION]
+```
+
+### Data Relationships
+- [ENTITY_1] → [ENTITY_2]: [RELATIONSHIP_TYPE] ([DESCRIPTION])
+- [ENTITY_2] → [ENTITY_3]: [RELATIONSHIP_TYPE] ([DESCRIPTION])
+
+### Data Flow Patterns
+1. **[FLOW_PATTERN_1]**: [DESCRIPTION]
+2. **[FLOW_PATTERN_2]**: [DESCRIPTION]
+3. **[FLOW_PATTERN_3]**: [DESCRIPTION]
+
+## API Specifications Template
+
+### Endpoint Categories
+1. **[CATEGORY_1]**: [DESCRIPTION]
+   - [ENDPOINT_1]: [PURPOSE]
+   - [ENDPOINT_2]: [PURPOSE]
+
+2. **[CATEGORY_2]**: [DESCRIPTION]
+   - [ENDPOINT_1]: [PURPOSE]
+   - [ENDPOINT_2]: [PURPOSE]
+
+### Authentication & Authorization
+- **Authentication Method**: [AUTH_METHOD]
+- **Authorization Levels**: [AUTH_LEVELS]
+- **API Key Management**: [API_KEY_APPROACH]
+
+### Request/Response Patterns
+```
+Standard Request Format:
+{
+  [COMMON_REQUEST_FIELDS]
+}
+
+Standard Response Format:
+{
+  [COMMON_RESPONSE_FIELDS]
+}
+
+Error Response Format:
+{
+  [ERROR_RESPONSE_FIELDS]
+}
+```
+
+## Business Rules Template
+
+### Core Business Rules
+1. **[RULE_CATEGORY_1]**
+   - [RULE_1]: [DESCRIPTION]
+   - [RULE_2]: [DESCRIPTION]
+
+2. **[RULE_CATEGORY_2]**
+   - [RULE_1]: [DESCRIPTION]
+   - [RULE_2]: [DESCRIPTION]
+
+### Validation Rules
+- **[FIELD_NAME]**: [VALIDATION_CRITERIA]
+- **[FIELD_NAME]**: [VALIDATION_CRITERIA]
+- **[FIELD_NAME]**: [VALIDATION_CRITERIA]
+
+### Processing Rules
+1. **[PROCESS_NAME]**: [PROCESSING_LOGIC]
+2. **[PROCESS_NAME]**: [PROCESSING_LOGIC]
+
+## Performance Characteristics Template
+
+### Performance Requirements
+- **Response Time**: [RESPONSE_TIME_SLA]
+- **Throughput**: [THROUGHPUT_REQUIREMENT]
+- **Concurrent Users**: [CONCURRENCY_REQUIREMENT]
+- **Availability**: [AVAILABILITY_SLA]
+
+### Scalability Patterns
+- **Horizontal Scaling**: [SCALING_APPROACH]
+- **Vertical Scaling**: [SCALING_LIMITS]
+- **Caching Strategy**: [CACHING_APPROACH]
+- **Load Balancing**: [LOAD_BALANCING_STRATEGY]
+
+## Security Considerations Template
+
+### Security Requirements
+- **Data Protection**: [DATA_PROTECTION_REQUIREMENTS]
+- **Access Control**: [ACCESS_CONTROL_MODEL]
+- **Audit Logging**: [AUDIT_REQUIREMENTS]
+- **Compliance**: [COMPLIANCE_STANDARDS]
+
+### Security Patterns
+1. **[SECURITY_PATTERN_1]**: [IMPLEMENTATION_APPROACH]
+2. **[SECURITY_PATTERN_2]**: [IMPLEMENTATION_APPROACH]
+
+## Monitoring & Operations Template
+
+### Key Metrics
+- **Business Metrics**: [BUSINESS_KPIS]
+- **Technical Metrics**: [TECHNICAL_METRICS]
+- **SLA Metrics**: [SLA_MEASUREMENTS]
+
+### Alerting Strategy
+- **Critical Alerts**: [CRITICAL_ALERT_CONDITIONS]
+- **Warning Alerts**: [WARNING_ALERT_CONDITIONS]
+- **Escalation Process**: [ESCALATION_PROCEDURES]
+
+### Maintenance Procedures
+1. **[PROCEDURE_NAME]**: [PROCEDURE_DESCRIPTION]
+2. **[PROCEDURE_NAME]**: [PROCEDURE_DESCRIPTION]
+
+## Dependencies Template
+
+### Internal Dependencies
+- **[DEPENDENCY_NAME]**: [PURPOSE] ([VERSION/COMMIT])
+- **[DEPENDENCY_NAME]**: [PURPOSE] ([VERSION/COMMIT])
+
+### External Dependencies
+- **[SERVICE_NAME]**: [PURPOSE] ([SLA_REQUIREMENTS])
+- **[SERVICE_NAME]**: [PURPOSE] ([SLA_REQUIREMENTS])
+
+### Development Dependencies
+- **[TOOL_NAME]**: [PURPOSE] ([VERSION])
+- **[TOOL_NAME]**: [PURPOSE] ([VERSION])
+
+## Example Implementation:
+
+```
+Project Name: Customer Profile Service
+Domain: Customer Management
+Purpose: Centralized customer data management and profile services
+
+The Customer Profile Service is a microservice in the ACME Corp [Project] that serves as the central repository for customer profile data. It's part of the [Project] Microservices architecture.
+
+Core Technical Functions:
+1. Profile CRUD Operations: Create, read, update, delete customer profiles
+2. Profile Search & Filtering: Advanced search capabilities across customer data
+3. Profile Aggregation: Combine data from multiple sources into unified profiles
+4. Profile Validation: Ensure data quality and business rule compliance
+
+Technology Stack:
+- Language: Go 1.21
+- Framework: Echo v4
+- Database: PostgreSQL 14
+- Message Queue: Apache Kafka
+- Caching: Redis
+- Monitoring: Prometheus + Grafana
+- Deployment: Kubernetes
+```
+
+## Customization Instructions:
+
+1. Replace all [PLACEHOLDER_TEXT] with your project-specific information
+2. Add domain-specific business rules and constraints
+3. Include actual API endpoints and data models
+4. Update performance requirements based on your SLAs
+5. Add security requirements specific to your compliance needs
+6. Include actual dependencies and their versions
+7. Add monitoring and alerting details specific to your infrastructure

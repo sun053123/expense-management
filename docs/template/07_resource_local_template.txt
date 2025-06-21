@@ -1,0 +1,339 @@
+# Local Development Resources for [PROJECT_NAME]
+
+## Repository Locations
+
+### Primary Project Repository
+**Project Name:** [PROJECT_NAME]
+**Local Path:** [PRIMARY_REPO_LOCAL_PATH]
+**Remote URL:** [PRIMARY_REPO_REMOTE_URL]
+**Branch:** [DEFAULT_BRANCH]
+
+### Shared Libraries and Dependencies
+
+#### [SHARED_LIB_1_NAME]
+**Local Path:** [SHARED_LIB_1_LOCAL_PATH]
+**Remote URL:** [SHARED_LIB_1_REMOTE_URL]
+**Purpose:** [SHARED_LIB_1_PURPOSE]
+
+#### [SHARED_LIB_2_NAME]
+**Local Path:** [SHARED_LIB_2_LOCAL_PATH]
+**Remote URL:** [SHARED_LIB_2_REMOTE_URL]
+**Purpose:** [SHARED_LIB_2_PURPOSE]
+
+#### [SHARED_LIB_3_NAME]
+**Local Path:** [SHARED_LIB_3_LOCAL_PATH]
+**Remote URL:** [SHARED_LIB_3_REMOTE_URL]
+**Purpose:** [SHARED_LIB_3_PURPOSE]
+
+### Related Microservices
+
+#### [MICROSERVICE_1_NAME]
+**Local Path:** [MICROSERVICE_1_LOCAL_PATH]
+**Remote URL:** [MICROSERVICE_1_REMOTE_URL]
+**Purpose:** [MICROSERVICE_1_PURPOSE]
+
+#### [MICROSERVICE_2_NAME]
+**Local Path:** [MICROSERVICE_2_LOCAL_PATH]
+**Remote URL:** [MICROSERVICE_2_REMOTE_URL]
+**Purpose:** [MICROSERVICE_2_PURPOSE]
+
+#### [MICROSERVICE_3_NAME]
+**Local Path:** [MICROSERVICE_3_LOCAL_PATH]
+**Remote URL:** [MICROSERVICE_3_REMOTE_URL]
+**Purpose:** [MICROSERVICE_3_PURPOSE]
+
+## Development Environment Setup
+
+### Prerequisites
+- [PREREQUISITE_1]: [PREREQUISITE_1_VERSION]
+- [PREREQUISITE_2]: [PREREQUISITE_2_VERSION]
+- [PREREQUISITE_3]: [PREREQUISITE_3_VERSION]
+- [PREREQUISITE_4]: [PREREQUISITE_4_VERSION]
+
+### Environment Variables
+```bash
+export [ENV_VAR_1]=[ENV_VAR_1_VALUE]
+export [ENV_VAR_2]=[ENV_VAR_2_VALUE]
+export [ENV_VAR_3]=[ENV_VAR_3_VALUE]
+export [ENV_VAR_4]=[ENV_VAR_4_VALUE]
+```
+
+### Local Configuration Files
+
+#### [CONFIG_FILE_1]
+**Location:** [CONFIG_FILE_1_PATH]
+**Purpose:** [CONFIG_FILE_1_PURPOSE]
+```[CONFIG_FORMAT]
+[CONFIG_FILE_1_CONTENT]
+```
+
+#### [CONFIG_FILE_2]
+**Location:** [CONFIG_FILE_2_PATH]
+**Purpose:** [CONFIG_FILE_2_PURPOSE]
+```[CONFIG_FORMAT]
+[CONFIG_FILE_2_CONTENT]
+```
+
+## Local Services and Dependencies
+
+### Database Services
+
+#### [DATABASE_1_NAME]
+**Type:** [DATABASE_1_TYPE]
+**Local Port:** [DATABASE_1_PORT]
+**Connection String:** [DATABASE_1_CONNECTION]
+**Setup Command:** [DATABASE_1_SETUP_COMMAND]
+
+#### [DATABASE_2_NAME]
+**Type:** [DATABASE_2_TYPE]
+**Local Port:** [DATABASE_2_PORT]
+**Connection String:** [DATABASE_2_CONNECTION]
+**Setup Command:** [DATABASE_2_SETUP_COMMAND]
+
+### Message Queue Services
+
+#### [MESSAGE_QUEUE_1_NAME]
+**Type:** [MESSAGE_QUEUE_1_TYPE]
+**Local Port:** [MESSAGE_QUEUE_1_PORT]
+**Connection String:** [MESSAGE_QUEUE_1_CONNECTION]
+**Setup Command:** [MESSAGE_QUEUE_1_SETUP_COMMAND]
+
+### Cache Services
+
+#### [CACHE_1_NAME]
+**Type:** [CACHE_1_TYPE]
+**Local Port:** [CACHE_1_PORT]
+**Connection String:** [CACHE_1_CONNECTION]
+**Setup Command:** [CACHE_1_SETUP_COMMAND]
+
+### External Service Mocks
+
+#### [EXTERNAL_SERVICE_1_NAME]
+**Mock Port:** [EXTERNAL_SERVICE_1_PORT]
+**Mock URL:** [EXTERNAL_SERVICE_1_URL]
+**Setup Command:** [EXTERNAL_SERVICE_1_SETUP_COMMAND]
+
+#### [EXTERNAL_SERVICE_2_NAME]
+**Mock Port:** [EXTERNAL_SERVICE_2_PORT]
+**Mock URL:** [EXTERNAL_SERVICE_2_URL]
+**Setup Command:** [EXTERNAL_SERVICE_2_SETUP_COMMAND]
+
+## Development Tools and Scripts
+
+### Build Scripts
+```bash
+# Build the application
+[BUILD_COMMAND]
+
+# Build with specific target
+[BUILD_TARGET_COMMAND]
+
+# Clean build artifacts
+[CLEAN_COMMAND]
+```
+
+### Test Scripts
+```bash
+# Run all tests
+[TEST_ALL_COMMAND]
+
+# Run unit tests
+[TEST_UNIT_COMMAND]
+
+# Run integration tests
+[TEST_INTEGRATION_COMMAND]
+
+# Run with coverage
+[TEST_COVERAGE_COMMAND]
+```
+
+### Development Scripts
+```bash
+# Start development server
+[DEV_START_COMMAND]
+
+# Start with hot reload
+[DEV_HOT_RELOAD_COMMAND]
+
+# Start with debugging
+[DEV_DEBUG_COMMAND]
+```
+
+### Database Scripts
+```bash
+# Run migrations
+[DB_MIGRATE_COMMAND]
+
+# Seed test data
+[DB_SEED_COMMAND]
+
+# Reset database
+[DB_RESET_COMMAND]
+```
+
+## Docker Development Environment
+
+### Docker Compose Configuration
+**File:** [DOCKER_COMPOSE_FILE]
+**Location:** [DOCKER_COMPOSE_PATH]
+
+```yaml
+[DOCKER_COMPOSE_CONTENT]
+```
+
+### Docker Commands
+```bash
+# Start all services
+[DOCKER_START_COMMAND]
+
+# Stop all services
+[DOCKER_STOP_COMMAND]
+
+# Rebuild services
+[DOCKER_REBUILD_COMMAND]
+
+# View logs
+[DOCKER_LOGS_COMMAND]
+```
+
+## IDE Configuration
+
+### [IDE_NAME] Configuration
+**Workspace File:** [IDE_WORKSPACE_FILE]
+**Settings Location:** [IDE_SETTINGS_PATH]
+
+#### Extensions/Plugins
+- [EXTENSION_1]: [EXTENSION_1_PURPOSE]
+- [EXTENSION_2]: [EXTENSION_2_PURPOSE]
+- [EXTENSION_3]: [EXTENSION_3_PURPOSE]
+
+#### Debug Configuration
+```json
+[DEBUG_CONFIGURATION]
+```
+
+### Code Formatting
+**Formatter:** [CODE_FORMATTER]
+**Config File:** [FORMATTER_CONFIG_FILE]
+```[CONFIG_FORMAT]
+[FORMATTER_CONFIG]
+```
+
+## Local Testing Resources
+
+### Test Databases
+**Test DB 1:** [TEST_DB_1_CONNECTION]
+**Test DB 2:** [TEST_DB_2_CONNECTION]
+
+### Test Data Files
+**Location:** [TEST_DATA_LOCATION]
+**Files:**
+- [TEST_DATA_FILE_1]: [TEST_DATA_FILE_1_PURPOSE]
+- [TEST_DATA_FILE_2]: [TEST_DATA_FILE_2_PURPOSE]
+
+### Mock Services
+**Mock Server:** [MOCK_SERVER_URL]
+**Mock Data:** [MOCK_DATA_LOCATION]
+
+## Monitoring and Debugging
+
+### Local Monitoring
+**Metrics Endpoint:** [METRICS_ENDPOINT]
+**Health Check:** [HEALTH_CHECK_ENDPOINT]
+**Logs Location:** [LOGS_LOCATION]
+
+### Debugging Tools
+**Debugger:** [DEBUGGER_TOOL]
+**Profiler:** [PROFILER_TOOL]
+**Tracer:** [TRACER_TOOL]
+
+## Documentation and Resources
+
+### Local Documentation
+**API Docs:** [LOCAL_API_DOCS_PATH]
+**Architecture Docs:** [LOCAL_ARCH_DOCS_PATH]
+**Setup Guide:** [LOCAL_SETUP_GUIDE_PATH]
+
+### Reference Materials
+**Code Examples:** [CODE_EXAMPLES_PATH]
+**Best Practices:** [BEST_PRACTICES_PATH]
+**Troubleshooting:** [TROUBLESHOOTING_PATH]
+
+## Backup and Sync
+
+### Backup Locations
+**Code Backup:** [CODE_BACKUP_PATH]
+**Config Backup:** [CONFIG_BACKUP_PATH]
+**Data Backup:** [DATA_BACKUP_PATH]
+
+### Sync Commands
+```bash
+# Sync with remote
+[SYNC_REMOTE_COMMAND]
+
+# Backup local changes
+[BACKUP_LOCAL_COMMAND]
+
+# Restore from backup
+[RESTORE_BACKUP_COMMAND]
+```
+
+## Troubleshooting
+
+### Common Issues
+
+#### Issue: [COMMON_ISSUE_1]
+**Symptoms:** [ISSUE_1_SYMPTOMS]
+**Solution:** [ISSUE_1_SOLUTION]
+**Prevention:** [ISSUE_1_PREVENTION]
+
+#### Issue: [COMMON_ISSUE_2]
+**Symptoms:** [ISSUE_2_SYMPTOMS]
+**Solution:** [ISSUE_2_SOLUTION]
+**Prevention:** [ISSUE_2_PREVENTION]
+
+### Useful Commands
+```bash
+# Check service status
+[CHECK_STATUS_COMMAND]
+
+# Reset environment
+[RESET_ENV_COMMAND]
+
+# Update dependencies
+[UPDATE_DEPS_COMMAND]
+```
+
+## Example Customization:
+
+Project Name: user-profile-service
+Primary Repo Local Path: /Users/developer/workspace/customer-platform/user-profile-service
+Primary Repo Remote URL: https://gitlab.company.com/customer-platform/user-profile-service
+Default Branch: main
+
+Shared Lib 1 Name: common-lib
+Shared Lib 1 Local Path: /Users/developer/workspace/shared-libs/[Project]-common-lib
+Shared Lib 1 Purpose: Common utilities and shared business logic
+
+Microservice 1 Name: user-auth-service
+Microservice 1 Local Path: /Users/developer/workspace/customer-platform/user-auth-service
+Microservice 1 Purpose: User authentication and authorization
+
+Prerequisite 1: Go
+Prerequisite 1 Version: 1.19+
+Prerequisite 2: Docker
+Prerequisite 2 Version: 20.10+
+Prerequisite 3: PostgreSQL
+Prerequisite 3 Version: 14+
+
+Database 1 Name: PostgreSQL
+Database 1 Type: Relational Database
+Database 1 Port: 5432
+Database 1 Connection: postgresql://user:pass@localhost:5432/userprofile
+
+Build Command: go build -o bin/user-profile-service ./cmd/server
+Test All Command: go test ./...
+Dev Start Command: go run ./cmd/server
+Docker Start Command: docker-compose up -d
+IDE Name: VS Code
+Code Formatter: gofmt

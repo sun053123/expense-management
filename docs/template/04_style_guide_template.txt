@@ -1,0 +1,273 @@
+# [ORGANIZATION_NAME] Coding Style Guide for [PROJECT_NAME]
+
+## Overview
+
+This style guide is based on the existing patterns and conventions found in the `[PROJECT_NAME]` [PROJECT_TYPE]. When generating code for this project, follow these guidelines to maintain consistency with the existing codebase.
+
+## General Coding Principles
+
+1. **[ARCHITECTURE_PRINCIPLE_1]**: [PRINCIPLE_1_DESCRIPTION]
+2. **[ARCHITECTURE_PRINCIPLE_2]**: [PRINCIPLE_2_DESCRIPTION]
+3. **[ARCHITECTURE_PRINCIPLE_3]**: [PRINCIPLE_3_DESCRIPTION]
+4. **[ARCHITECTURE_PRINCIPLE_4]**: [PRINCIPLE_4_DESCRIPTION]
+5. **[ARCHITECTURE_PRINCIPLE_5]**: [PRINCIPLE_5_DESCRIPTION]
+
+## Package Structure
+
+```
+[PROJECT_NAME]/
+├── [FOLDER_1]/        # [FOLDER_1_PURPOSE]
+├── [FOLDER_2]/        # [FOLDER_2_PURPOSE]
+├── [FOLDER_3]/        # [FOLDER_3_PURPOSE]
+├── [FOLDER_4]/        # [FOLDER_4_PURPOSE]
+│   ├── [SUBFOLDER_1]/ # [SUBFOLDER_1_PURPOSE]
+│   ├── [SUBFOLDER_2]/ # [SUBFOLDER_2_PURPOSE]
+│   ├── [SUBFOLDER_3]/ # [SUBFOLDER_3_PURPOSE]
+│   ├── [SUBFOLDER_4]/ # [SUBFOLDER_4_PURPOSE]
+│   └── [SUBFOLDER_5]/ # [SUBFOLDER_5_PURPOSE]
+│       └── [NESTED_FOLDER]/  # [NESTED_FOLDER_PURPOSE]
+├── [FOLDER_5]/        # [FOLDER_5_PURPOSE]
+├── [FOLDER_6]/        # [FOLDER_6_PURPOSE]
+└── [MAIN_FILE]        # [MAIN_FILE_PURPOSE]
+```
+
+## Naming Conventions
+
+1. **Variables**: Use [VARIABLE_NAMING_CONVENTION] for variables, with [VARIABLE_NAMING_STYLE]
+2. **Functions/Methods**: Use [FUNCTION_NAMING_CONVENTION] for methods and functions
+3. **Types/Interfaces**: Use [TYPE_NAMING_CONVENTION] for types, interfaces, and structs
+4. **Constants**: Use [CONSTANT_NAMING_CONVENTION] for constants
+5. **Packages**: Use [PACKAGE_NAMING_CONVENTION] package names
+6. **Files**: Use [FILE_NAMING_CONVENTION] for filenames
+7. **[SPECIFIC_COMPONENT_1]**: Name [COMPONENT_1] files as `[COMPONENT_1_PATTERN]`
+8. **[SPECIFIC_COMPONENT_2]**: Name [COMPONENT_2] files as `[COMPONENT_2_PATTERN]`
+
+## Code Style Patterns
+
+### [PATTERN_1_NAME] Pattern
+
+```[PROGRAMMING_LANGUAGE]
+// [PATTERN_1_DESCRIPTION]
+[PATTERN_1_CODE_EXAMPLE]
+```
+
+### [PATTERN_2_NAME] Pattern
+
+```[PROGRAMMING_LANGUAGE]
+// [PATTERN_2_DESCRIPTION]
+[PATTERN_2_CODE_EXAMPLE]
+```
+
+### [PATTERN_3_NAME] Pattern
+
+```[PROGRAMMING_LANGUAGE]
+// [PATTERN_3_DESCRIPTION]
+[PATTERN_3_CODE_EXAMPLE]
+```
+
+### [PATTERN_4_NAME] Pattern
+
+```[PROGRAMMING_LANGUAGE]
+// [PATTERN_4_DESCRIPTION]
+[PATTERN_4_CODE_EXAMPLE]
+```
+
+## Error Handling Patterns
+
+```[PROGRAMMING_LANGUAGE]
+// Define reusable error constants
+[ERROR_CONSTANT_PATTERN]
+
+// Creating [ERROR_TYPE_1] errors
+[ERROR_TYPE_1_PATTERN]
+
+// Creating [ERROR_TYPE_2] errors
+[ERROR_TYPE_2_PATTERN]
+```
+
+## Testing Patterns
+
+```[PROGRAMMING_LANGUAGE]
+[TESTING_PATTERN_EXAMPLE]
+```
+
+## Documentation Patterns
+
+```[PROGRAMMING_LANGUAGE]
+// Package-level documentation
+[PACKAGE_DOCUMENTATION_PATTERN]
+
+// Function documentation
+[FUNCTION_DOCUMENTATION_PATTERN]
+```
+
+## Common Libraries and Packages to Use
+
+1. Use `[LIBRARY_1]` for [LIBRARY_1_PURPOSE]
+2. Use `[LIBRARY_2]` for [LIBRARY_2_PURPOSE]
+3. Use `[LIBRARY_3]` for [LIBRARY_3_PURPOSE]
+4. Use `[LIBRARY_4]` for [LIBRARY_4_PURPOSE]
+5. Use `[LIBRARY_5]` for [LIBRARY_5_PURPOSE]
+6. Use `[LIBRARY_6]` for [LIBRARY_6_PURPOSE]
+
+## Error Handling Best Practices
+
+1. [ERROR_PRACTICE_1] should use `[ERROR_HANDLER_1]`
+2. [ERROR_PRACTICE_2] should use `[ERROR_HANDLER_2]`
+3. Always include [ERROR_REQUIREMENT_1], [ERROR_REQUIREMENT_2], and [ERROR_REQUIREMENT_3]
+4. Check for [ERROR_CHECK_PATTERN] before creating duplicate errors
+
+## Common Constants and Enums
+
+1. Use the enums in `[ENUM_LOCATION]` for [ENUM_PURPOSE]
+2. Use constants from `[CONSTANT_LOCATION]` for [CONSTANT_PURPOSE]
+3. For shared constants, use the `[SHARED_CONSTANT_LOCATION]` from the shared library
+
+## Custom Validation Guidelines
+
+1. Use the `[VALIDATION_STRUCT]` for defining validation rules
+2. Always validate [VALIDATION_SCOPE_1] in the [VALIDATION_LOCATION_1]
+3. Rely on the [VALIDATION_SCOPE_2] for [VALIDATION_LOCATION_2]
+
+## API Design Patterns
+
+### Request/Response Structure
+```[PROGRAMMING_LANGUAGE]
+[API_REQUEST_PATTERN]
+```
+
+### Endpoint Naming
+- [ENDPOINT_PATTERN_1]: `[ENDPOINT_EXAMPLE_1]`
+- [ENDPOINT_PATTERN_2]: `[ENDPOINT_EXAMPLE_2]`
+- [ENDPOINT_PATTERN_3]: `[ENDPOINT_EXAMPLE_3]`
+
+### Status Codes
+- [STATUS_CODE_1]: [STATUS_CODE_1_USAGE]
+- [STATUS_CODE_2]: [STATUS_CODE_2_USAGE]
+- [STATUS_CODE_3]: [STATUS_CODE_3_USAGE]
+
+## Database Patterns
+
+### Schema Design
+```sql
+[DATABASE_SCHEMA_PATTERN]
+```
+
+### Query Patterns
+```sql
+[DATABASE_QUERY_PATTERN]
+```
+
+### Migration Patterns
+```sql
+[DATABASE_MIGRATION_PATTERN]
+```
+
+## Configuration Management
+
+### Environment Variables
+```[CONFIG_FORMAT]
+[ENVIRONMENT_VARIABLE_PATTERN]
+```
+
+### Configuration Files
+```[CONFIG_FORMAT]
+[CONFIGURATION_FILE_PATTERN]
+```
+
+## Logging Patterns
+
+### Log Levels
+- **[LOG_LEVEL_1]**: [LOG_LEVEL_1_USAGE]
+- **[LOG_LEVEL_2]**: [LOG_LEVEL_2_USAGE]
+- **[LOG_LEVEL_3]**: [LOG_LEVEL_3_USAGE]
+
+### Log Format
+```[PROGRAMMING_LANGUAGE]
+[LOGGING_PATTERN]
+```
+
+## Security Patterns
+
+### Authentication
+```[PROGRAMMING_LANGUAGE]
+[AUTHENTICATION_PATTERN]
+```
+
+### Authorization
+```[PROGRAMMING_LANGUAGE]
+[AUTHORIZATION_PATTERN]
+```
+
+### Input Validation
+```[PROGRAMMING_LANGUAGE]
+[INPUT_VALIDATION_PATTERN]
+```
+
+## Performance Patterns
+
+### Caching
+```[PROGRAMMING_LANGUAGE]
+[CACHING_PATTERN]
+```
+
+### Database Optimization
+```[PROGRAMMING_LANGUAGE]
+[DATABASE_OPTIMIZATION_PATTERN]
+```
+
+### Async Processing
+```[PROGRAMMING_LANGUAGE]
+[ASYNC_PROCESSING_PATTERN]
+```
+
+## Monitoring and Observability
+
+### Metrics
+```[PROGRAMMING_LANGUAGE]
+[METRICS_PATTERN]
+```
+
+### Health Checks
+```[PROGRAMMING_LANGUAGE]
+[HEALTH_CHECK_PATTERN]
+```
+
+### Distributed Tracing
+```[PROGRAMMING_LANGUAGE]
+[TRACING_PATTERN]
+```
+
+By following these patterns consistently, new code will integrate seamlessly with the existing codebase, maintaining the architectural integrity and style of the [PROJECT_NAME] [PROJECT_TYPE].
+
+## Example Customization:
+
+Organization Name: TechCorp
+Project Name: user-profile-service
+Project Type: microservice
+Programming Language: Go
+Architecture Principle 1: Clean Architecture
+Principle 1 Description: Maintain separation between handler, service, and repository layers
+Variable Naming Convention: camelCase
+Function Naming Convention: camelCase
+Type Naming Convention: PascalCase
+Constant Naming Convention: ALL_CAPS with underscores
+Package Naming Convention: all lowercase, single word
+File Naming Convention: snake_case
+
+Folder 1: cmd (Application entry points)
+Folder 2: internal (Private application code)
+Folder 3: pkg (Public library code)
+Folder 4: api (API definitions and handlers)
+Subfolder 1: handlers (HTTP request handlers)
+Subfolder 2: middleware (HTTP middleware)
+Subfolder 3: routes (Route definitions)
+
+Library 1: github.com/gin-gonic/gin (HTTP web framework)
+Library 2: github.com/stretchr/testify (Testing toolkit)
+Library 3: github.com/sirupsen/logrus (Structured logging)
+
+Pattern 1 Name: Handler
+Pattern 2 Name: Service
+Pattern 3 Name: Repository
+Pattern 4 Name: Middleware
