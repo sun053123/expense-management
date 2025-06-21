@@ -1,0 +1,262 @@
+# Tool Chaining Guide for [PROJECT_NAME] Development
+
+## 1. Understanding Requirements (Information Gathering)
+
+### Step 1: Retrieve Specifications
+```
+tool_use_plan → confluence_get_page → confluence_search
+```
+
+**Process:**
+1. Create a plan to gather all necessary information
+2. Retrieve the main specification page for [PROJECT_NAME]
+3. Search for related documentation and dependencies
+
+**Example Chain-of-Thought:**
+- "I need to understand the requirements for implementing [FEATURE_TYPE]"
+- "First, I'll retrieve the main specification document"
+- "Then I'll search for any related documentation that provides context"
+- "I'll analyze how this [COMPONENT_TYPE] fits into the existing architecture"
+
+### Step 2: Analyze Existing Implementation
+```
+gitlab_clone_repo → gitlab_get_file_content → RAG_memory_index_file
+```
+
+**Process:**
+1. Clone the repository to access the full codebase
+2. Review similar [COMPONENT_TYPE] implementations
+3. Index key files for reference during development
+
+**Example Chain-of-Thought:**
+- "I need to understand the existing implementation patterns"
+- "I'll review similar [COMPONENT_TYPE] implementations like [EXAMPLE_FILE]"
+- "I'll analyze the package structure and dependencies"
+- "I'll note the consistent patterns for [PATTERN_TYPE_1] and [PATTERN_TYPE_2]"
+
+## 2. Planning Implementation (Design Phase)
+
+### Step 3: Create Implementation Plan
+```
+RAG_memory_create_collection → RAG_memory_index_content → RAG_memory_search
+```
+
+**Process:**
+1. Create a collection for the current implementation
+2. Index key design patterns and code structures
+3. Search for similar implementations to follow consistent patterns
+
+**Example Chain-of-Thought:**
+- "Based on the requirements, I need to implement a [COMPONENT_TYPE] with these components..."
+- "The existing codebase follows a [ARCHITECTURE_PATTERN] pattern with these layers..."
+- "I'll need to create these specific files following the established naming conventions..."
+- "The [COMPONENT_TYPE] will need these [REQUIREMENT_TYPE] based on the specification..."
+
+## 3. Code Implementation
+
+### Step 4: Develop Core Components
+```
+[DEVELOPMENT_TOOL_1] → [DEVELOPMENT_TOOL_2] → [DEVELOPMENT_TOOL_3]
+```
+
+**Process:**
+1. Create code artifacts for the implementation
+2. Test complex logic using [TESTING_APPROACH]
+3. Validate the implementation with [VALIDATION_METHOD]
+
+**Example Chain-of-Thought:**
+- "I'll start by implementing the [COMPONENT_TYPE] structure following the established pattern"
+- "This [LOGIC_TYPE] is complex, so I'll test it [TESTING_METHOD] first"
+- "The [FUNCTION_TYPE] needs to handle these edge cases..."
+- "I need to ensure the [PATTERN_TYPE] follows the established pattern"
+
+## 4. Validation and Testing
+
+### Step 5: Review and Test
+```
+[TESTING_TOOL] → RAG_memory_search → gitlab_list_mrs
+```
+
+**Process:**
+1. Execute [TEST_TYPE] to validate implementation
+2. Compare with similar implementations
+3. Review related merge requests for context
+
+**Example Chain-of-Thought:**
+- "My implementation is complete, now I need to validate it"
+- "I'll run [TEST_TYPE] to ensure it works as expected"
+- "I'll compare with similar implementations to ensure consistency"
+- "I'll check if there are any related merge requests that might impact this code"
+
+## 5. Documentation and Deployment
+
+### Step 6: Document Implementation
+```
+confluence_create_page → jira_update_issue → gitlab_create_mr
+```
+
+**Process:**
+1. Document the implementation in Confluence
+2. Update related Jira issues
+3. Create a merge request with detailed description
+
+**Example Chain-of-Thought:**
+- "Implementation is complete and tested, now I need to document it"
+- "I'll create a confluence page explaining the implementation details"
+- "I'll update the Jira issue with implementation notes and test results"
+- "I'll create a merge request with a detailed description of changes"
+
+## Best Practices for Tool Chaining
+
+1. **Start with Information Gathering**
+   - Always begin by fully understanding the requirements
+   - Use [DOCUMENTATION_TOOL] and existing [VERSION_CONTROL_TOOL] code to establish context
+
+2. **Create Intermediate Artifacts**
+   - Document your thinking at each step
+   - Create [ARTIFACT_TYPE_1] or [ARTIFACT_TYPE_2] before implementation
+
+3. **Validate Incrementally**
+   - Test each component as you develop it
+   - Use [VALIDATION_TOOL] for complex logic validation
+
+4. **Maintain Traceability**
+   - Link implementations back to requirements
+   - Reference related merge requests and issues
+
+5. **Document Decision Points**
+   - Explain why specific approaches were chosen
+   - Document any trade-offs or alternatives considered
+
+## Example End-to-End Workflow
+
+### Implementing a New [COMPONENT_TYPE]
+
+1. **Gather Requirements**
+   ```
+   confluence_get_page → confluence_search → gitlab_get_file_content
+   ```
+   - "I need to implement the [SPECIFIC_COMPONENT] [COMPONENT_TYPE]"
+   - "The specification shows these [INPUT_TYPE] and expected [OUTPUT_TYPE]"
+   - "Similar [COMPONENT_TYPE] handle [FEATURE_1] and [FEATURE_2] in this way"
+
+2. **Design Implementation**
+   ```
+   RAG_memory_create_collection → RAG_memory_index_content → RAG_memory_search
+   ```
+   - "Based on the [ARCHITECTURE_PATTERN] pattern, I'll need these components..."
+   - "The [COMPONENT_TYPE] will follow this structure..."
+   - "I'll need to handle these specific [ERROR_TYPE] cases..."
+
+3. **Implement Code**
+   ```
+   [IMPLEMENTATION_TOOL_1] → [IMPLEMENTATION_TOOL_2] → RAG_memory_search
+   ```
+   - "I'm implementing the [COMPONENT_TYPE] struct following the pattern in [REFERENCE_FILE]"
+   - "The [LOGIC_TYPE] needs to handle these edge cases..."
+   - "The [FUNCTION_TYPE] follows this pattern for consistency..."
+
+4. **Test and Validate**
+   ```
+   [TESTING_COMMAND] → gitlab_list_mrs → RAG_memory_search
+   ```
+   - "[TEST_TYPE] confirm the implementation works as expected"
+   - "The implementation is consistent with similar [COMPONENT_TYPE]"
+   - "All edge cases are handled according to the specification"
+
+5. **Document and Submit**
+   ```
+   confluence_update_page → jira_update_issue → gitlab_create_mr
+   ```
+   - "Implementation is documented in Confluence"
+   - "Jira issue is updated with implementation details"
+   - "Merge request is created with detailed description"
+
+## Domain-Specific Tool Chains
+
+### For [DOMAIN_1] Development
+```
+[DOMAIN_1_TOOL_CHAIN]
+```
+**Use Case:** [DOMAIN_1_USE_CASE]
+**Best Practices:** [DOMAIN_1_BEST_PRACTICES]
+
+### For [DOMAIN_2] Development
+```
+[DOMAIN_2_TOOL_CHAIN]
+```
+**Use Case:** [DOMAIN_2_USE_CASE]
+**Best Practices:** [DOMAIN_2_BEST_PRACTICES]
+
+### For [DOMAIN_3] Development
+```
+[DOMAIN_3_TOOL_CHAIN]
+```
+**Use Case:** [DOMAIN_3_USE_CASE]
+**Best Practices:** [DOMAIN_3_BEST_PRACTICES]
+
+## Troubleshooting Common Issues
+
+### Issue: [COMMON_ISSUE_1]
+**Symptoms:** [ISSUE_1_SYMPTOMS]
+**Tool Chain:** [ISSUE_1_TOOL_CHAIN]
+**Resolution:** [ISSUE_1_RESOLUTION]
+
+### Issue: [COMMON_ISSUE_2]
+**Symptoms:** [ISSUE_2_SYMPTOMS]
+**Tool Chain:** [ISSUE_2_TOOL_CHAIN]
+**Resolution:** [ISSUE_2_RESOLUTION]
+
+### Issue: [COMMON_ISSUE_3]
+**Symptoms:** [ISSUE_3_SYMPTOMS]
+**Tool Chain:** [ISSUE_3_TOOL_CHAIN]
+**Resolution:** [ISSUE_3_RESOLUTION]
+
+## Advanced Tool Chaining Patterns
+
+### Pattern: [ADVANCED_PATTERN_1]
+```
+[ADVANCED_PATTERN_1_CHAIN]
+```
+**When to Use:** [ADVANCED_PATTERN_1_USAGE]
+**Benefits:** [ADVANCED_PATTERN_1_BENEFITS]
+
+### Pattern: [ADVANCED_PATTERN_2]
+```
+[ADVANCED_PATTERN_2_CHAIN]
+```
+**When to Use:** [ADVANCED_PATTERN_2_USAGE]
+**Benefits:** [ADVANCED_PATTERN_2_BENEFITS]
+
+## Example Customization:
+
+Project Name: user-profile-service
+Feature Type: new API endpoint
+Component Type: service
+Architecture Pattern: clean architecture
+Pattern Type 1: error handling
+Pattern Type 2: validation
+Example File: user_service_impl.go
+Development Tool 1: str_replace_editor
+Development Tool 2: save_file
+Development Tool 3: launch_process
+Testing Approach: unit testing
+Validation Method: integration tests
+Testing Tool: execute_command_line_script
+Test Type: unit tests
+Documentation Tool: Confluence
+Version Control Tool: GitLab
+Validation Tool: REPL
+Artifact Type 1: design diagrams
+Artifact Type 2: pseudo-code
+Specific Component: GetUserProfile
+Input Type: user parameters
+Output Type: user profile data
+Reference File: get_user_service_impl.go
+Implementation Tool 1: codebase_retrieval
+Implementation Tool 2: str_replace_editor
+Testing Command: go test ./...
+Domain 1: API Development
+Domain 1 Tool Chain: confluence_get_page → codebase_retrieval → str_replace_editor → launch_process
+Domain 1 Use Case: Creating new REST API endpoints
+Domain 1 Best Practices: Follow OpenAPI specifications and implement proper error handling

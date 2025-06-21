@@ -1,0 +1,303 @@
+# Test Cases Template for [PROJECT_NAME]
+
+## Test Data Sources
+
+### Primary Test Database
+**Database Type:** [DATABASE_TYPE]
+**Table Name:** [TEST_TABLE_NAME]
+**Target System:** [TARGET_SYSTEM]
+**Access Method:** [ACCESS_METHOD]
+
+### Secondary Test Sources
+**Source 1:** [TEST_SOURCE_1]
+**Source 2:** [TEST_SOURCE_2]
+**Source 3:** [TEST_SOURCE_3]
+
+## Test Categories
+
+### 1. Unit Tests
+
+#### [COMPONENT_1] Tests
+**Test File:** `[COMPONENT_1_TEST_FILE]`
+**Coverage Target:** [COVERAGE_PERCENTAGE]%
+
+**Test Cases:**
+- [TEST_CASE_1_NAME]: [TEST_CASE_1_DESCRIPTION]
+- [TEST_CASE_2_NAME]: [TEST_CASE_2_DESCRIPTION]
+- [TEST_CASE_3_NAME]: [TEST_CASE_3_DESCRIPTION]
+
+#### [COMPONENT_2] Tests
+**Test File:** `[COMPONENT_2_TEST_FILE]`
+**Coverage Target:** [COVERAGE_PERCENTAGE]%
+
+**Test Cases:**
+- [TEST_CASE_4_NAME]: [TEST_CASE_4_DESCRIPTION]
+- [TEST_CASE_5_NAME]: [TEST_CASE_5_DESCRIPTION]
+- [TEST_CASE_6_NAME]: [TEST_CASE_6_DESCRIPTION]
+
+### 2. Integration Tests
+
+#### [INTEGRATION_SCOPE_1] Integration
+**Test File:** `[INTEGRATION_1_TEST_FILE]`
+**Dependencies:** [INTEGRATION_1_DEPENDENCIES]
+
+**Test Scenarios:**
+- [INTEGRATION_SCENARIO_1]: [INTEGRATION_SCENARIO_1_DESCRIPTION]
+- [INTEGRATION_SCENARIO_2]: [INTEGRATION_SCENARIO_2_DESCRIPTION]
+
+#### [INTEGRATION_SCOPE_2] Integration
+**Test File:** `[INTEGRATION_2_TEST_FILE]`
+**Dependencies:** [INTEGRATION_2_DEPENDENCIES]
+
+**Test Scenarios:**
+- [INTEGRATION_SCENARIO_3]: [INTEGRATION_SCENARIO_3_DESCRIPTION]
+- [INTEGRATION_SCENARIO_4]: [INTEGRATION_SCENARIO_4_DESCRIPTION]
+
+### 3. End-to-End Tests
+
+#### [E2E_FLOW_1] Flow
+**Test File:** `[E2E_1_TEST_FILE]`
+**Test Environment:** [E2E_ENVIRONMENT]
+
+**Test Steps:**
+1. [E2E_STEP_1]
+2. [E2E_STEP_2]
+3. [E2E_STEP_3]
+4. [E2E_STEP_4]
+
+#### [E2E_FLOW_2] Flow
+**Test File:** `[E2E_2_TEST_FILE]`
+**Test Environment:** [E2E_ENVIRONMENT]
+
+**Test Steps:**
+1. [E2E_STEP_5]
+2. [E2E_STEP_6]
+3. [E2E_STEP_7]
+4. [E2E_STEP_8]
+
+## Test Data Management
+
+### Test Data Setup
+```[PROGRAMMING_LANGUAGE]
+[TEST_DATA_SETUP_CODE]
+```
+
+### Test Data Cleanup
+```[PROGRAMMING_LANGUAGE]
+[TEST_DATA_CLEANUP_CODE]
+```
+
+### Mock Data Patterns
+```[PROGRAMMING_LANGUAGE]
+[MOCK_DATA_PATTERN]
+```
+
+## Test Execution Commands
+
+### Run All Tests
+```bash
+[RUN_ALL_TESTS_COMMAND]
+```
+
+### Run Unit Tests Only
+```bash
+[RUN_UNIT_TESTS_COMMAND]
+```
+
+### Run Integration Tests Only
+```bash
+[RUN_INTEGRATION_TESTS_COMMAND]
+```
+
+### Run E2E Tests Only
+```bash
+[RUN_E2E_TESTS_COMMAND]
+```
+
+### Run Tests with Coverage
+```bash
+[RUN_TESTS_WITH_COVERAGE_COMMAND]
+```
+
+## Test Environment Configuration
+
+### Local Testing Environment
+```[CONFIG_FORMAT]
+[LOCAL_TEST_CONFIG]
+```
+
+### CI/CD Testing Environment
+```[CONFIG_FORMAT]
+[CICD_TEST_CONFIG]
+```
+
+### Staging Testing Environment
+```[CONFIG_FORMAT]
+[STAGING_TEST_CONFIG]
+```
+
+## Performance Test Cases
+
+### Load Testing
+**Tool:** [LOAD_TESTING_TOOL]
+**Target:** [LOAD_TEST_TARGET]
+**Metrics:** [LOAD_TEST_METRICS]
+
+**Test Scenarios:**
+- [LOAD_SCENARIO_1]: [LOAD_SCENARIO_1_DESCRIPTION]
+- [LOAD_SCENARIO_2]: [LOAD_SCENARIO_2_DESCRIPTION]
+
+### Stress Testing
+**Tool:** [STRESS_TESTING_TOOL]
+**Target:** [STRESS_TEST_TARGET]
+**Metrics:** [STRESS_TEST_METRICS]
+
+**Test Scenarios:**
+- [STRESS_SCENARIO_1]: [STRESS_SCENARIO_1_DESCRIPTION]
+- [STRESS_SCENARIO_2]: [STRESS_SCENARIO_2_DESCRIPTION]
+
+## Security Test Cases
+
+### Authentication Tests
+- [AUTH_TEST_1]: [AUTH_TEST_1_DESCRIPTION]
+- [AUTH_TEST_2]: [AUTH_TEST_2_DESCRIPTION]
+
+### Authorization Tests
+- [AUTHZ_TEST_1]: [AUTHZ_TEST_1_DESCRIPTION]
+- [AUTHZ_TEST_2]: [AUTHZ_TEST_2_DESCRIPTION]
+
+### Input Validation Tests
+- [VALIDATION_TEST_1]: [VALIDATION_TEST_1_DESCRIPTION]
+- [VALIDATION_TEST_2]: [VALIDATION_TEST_2_DESCRIPTION]
+
+## Test Automation
+
+### Continuous Integration
+```yaml
+[CI_TEST_PIPELINE]
+```
+
+### Test Reporting
+**Tool:** [TEST_REPORTING_TOOL]
+**Output Format:** [REPORT_FORMAT]
+**Location:** [REPORT_LOCATION]
+
+### Test Notifications
+**Success Notifications:** [SUCCESS_NOTIFICATION_METHOD]
+**Failure Notifications:** [FAILURE_NOTIFICATION_METHOD]
+
+## Test Data Queries
+
+### Query Test Data from [DATABASE_TYPE]
+```sql
+[TEST_DATA_QUERY_1]
+```
+
+### Query Specific Test Scenarios
+```sql
+[TEST_DATA_QUERY_2]
+```
+
+### Query Performance Test Data
+```sql
+[TEST_DATA_QUERY_3]
+```
+
+## Test Case Templates
+
+### Unit Test Template
+```[PROGRAMMING_LANGUAGE]
+[UNIT_TEST_TEMPLATE]
+```
+
+### Integration Test Template
+```[PROGRAMMING_LANGUAGE]
+[INTEGRATION_TEST_TEMPLATE]
+```
+
+### E2E Test Template
+```[PROGRAMMING_LANGUAGE]
+[E2E_TEST_TEMPLATE]
+```
+
+## Test Quality Gates
+
+### Coverage Requirements
+- **Unit Test Coverage:** [UNIT_COVERAGE_REQUIREMENT]%
+- **Integration Test Coverage:** [INTEGRATION_COVERAGE_REQUIREMENT]%
+- **Overall Coverage:** [OVERALL_COVERAGE_REQUIREMENT]%
+
+### Performance Requirements
+- **Response Time:** < [RESPONSE_TIME_REQUIREMENT]ms
+- **Throughput:** > [THROUGHPUT_REQUIREMENT] requests/second
+- **Error Rate:** < [ERROR_RATE_REQUIREMENT]%
+
+### Quality Metrics
+- **Code Quality Score:** > [QUALITY_SCORE_REQUIREMENT]
+- **Security Scan:** [SECURITY_SCAN_REQUIREMENT]
+- **Dependency Check:** [DEPENDENCY_CHECK_REQUIREMENT]
+
+## Troubleshooting Test Issues
+
+### Common Test Failures
+1. **[COMMON_FAILURE_1]**
+   - **Symptoms:** [FAILURE_1_SYMPTOMS]
+   - **Resolution:** [FAILURE_1_RESOLUTION]
+
+2. **[COMMON_FAILURE_2]**
+   - **Symptoms:** [FAILURE_2_SYMPTOMS]
+   - **Resolution:** [FAILURE_2_RESOLUTION]
+
+3. **[COMMON_FAILURE_3]**
+   - **Symptoms:** [FAILURE_3_SYMPTOMS]
+   - **Resolution:** [FAILURE_3_RESOLUTION]
+
+### Test Environment Issues
+1. **[ENV_ISSUE_1]**
+   - **Symptoms:** [ENV_ISSUE_1_SYMPTOMS]
+   - **Resolution:** [ENV_ISSUE_1_RESOLUTION]
+
+2. **[ENV_ISSUE_2]**
+   - **Symptoms:** [ENV_ISSUE_2_SYMPTOMS]
+   - **Resolution:** [ENV_ISSUE_2_RESOLUTION]
+
+## Test Documentation
+
+### Test Plan Location
+**Document:** [TEST_PLAN_LOCATION]
+**Last Updated:** [TEST_PLAN_LAST_UPDATED]
+
+### Test Results Archive
+**Location:** [TEST_RESULTS_LOCATION]
+**Retention Policy:** [TEST_RESULTS_RETENTION]
+
+### Test Metrics Dashboard
+**URL:** [TEST_METRICS_DASHBOARD_URL]
+**Access:** [DASHBOARD_ACCESS_REQUIREMENTS]
+
+## Example Customization:
+
+Project Name: user-profile-service
+Database Type: PostgreSQL
+Test Table Name: test_cases
+Target System: user-profile-service
+Access Method: use MCP tool to query test-cases QA from PostgreSQL DB
+Programming Language: Go
+Component 1: UserService
+Component 1 Test File: user_service_test.go
+Coverage Percentage: 85
+Test Case 1 Name: TestCreateUser_Success
+Test Case 1 Description: Verify successful user creation with valid input
+Load Testing Tool: k6
+Stress Testing Tool: Artillery
+Test Reporting Tool: Go test with coverage
+CI Test Pipeline: GitHub Actions workflow
+Run All Tests Command: go test ./...
+Run Unit Tests Command: go test ./internal/...
+Run Integration Tests Command: go test ./tests/integration/...
+Unit Coverage Requirement: 80
+Integration Coverage Requirement: 70
+Overall Coverage Requirement: 75
+Response Time Requirement: 200
+Throughput Requirement: 1000
+Error Rate Requirement: 1

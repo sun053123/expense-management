@@ -1,0 +1,248 @@
+# Expense Management System - Knowledge Base
+
+## Business Context
+
+The Expense Management System is a personal finance web application designed to help users track their income and expenses efficiently. It serves as a simple yet powerful tool for financial management that can be deployed quickly to cloud infrastructure.
+
+## Technical Purpose
+
+The system provides a complete expense tracking solution with authentication, data persistence, and visualization capabilities. It enables users to add, edit, delete, and analyze their financial transactions through an intuitive web interface.
+
+## Key Features
+
+1. **User Authentication**: Secure JWT-based authentication system for user registration and login
+2. **Transaction Management**: Full CRUD operations for income and expense entries
+3. **Data Filtering**: Advanced filtering by date range, transaction type, and keywords
+4. **Financial Visualization**: Interactive charts showing expense patterns using Chart.js
+5. **Responsive Design**: Mobile-friendly interface built with Tailwind CSS
+6. **Real-time Updates**: Immediate reflection of changes in the dashboard
+
+## Architecture
+
+The application follows a standard MERN stack architecture (MongoDB, Express, React, Node.js):
+
+### Core Components
+
+1. **Backend API Layer**
+   - `Express Server`: RESTful API server handling all business logic
+   - Responsibilities: Request routing, authentication, data validation, database operations
+
+2. **Authentication Layer**
+   - `JWT Middleware`: Token-based authentication system
+   - Responsibilities: User verification, token generation/validation, protected route access
+
+3. **Data Access Layer**
+   - `MongoDB Integration`: NoSQL database for flexible data storage
+   - Responsibilities: Data persistence, query optimization, schema validation
+
+4. **Frontend Layer**
+   - `React Application`: Single-page application for user interface
+   - Responsibilities: User interaction, state management, API communication
+
+## Main Flow
+
+1. User accesses the application through a web browser
+2. If not authenticated, user is redirected to login/register page
+3. User provides credentials and receives JWT token upon successful authentication
+4. Token is stored in browser and sent with each API request
+5. User can view dashboard with all transactions and summary statistics
+6. User can add new income/expense entries through a form
+7. User can filter and search through existing transactions
+8. Chart visualization updates dynamically based on current data
+9. All changes are persisted to MongoDB database
+
+## API Endpoints
+
+The expense-tracker-api supports the following endpoints:
+
+### Authentication Endpoints
+1. **POST /api/auth/register**: Create new user account
+2. **POST /api/auth/login**: Authenticate user and receive JWT token
+3. **GET /api/auth/profile**: Get current user profile (protected)
+
+### Transaction Endpoints
+4. **GET /api/transactions**: Fetch all transactions for authenticated user
+5. **POST /api/transactions**: Create new transaction entry
+6. **GET /api/transactions/:id**: Get specific transaction details
+7. **PUT /api/transactions/:id**: Update existing transaction
+8. **DELETE /api/transactions/:id**: Remove transaction
+9. **GET /api/transactions/summary**: Get financial summary statistics
+10. **GET /api/transactions/filter**: Filter transactions by criteria
+
+## MongoDB Schema Design
+
+### User Schema
+```json
+{
+  "_id": "ObjectId",
+  "username": "string",
+  "email": "string",
+  "password": "hashed_string",
+  "createdAt": "timestamp",
+  "updatedAt": "timestamp"
+}
+```
+
+### Transaction Schema
+```json
+{
+  "_id": "ObjectId",
+  "userId": "ObjectId (reference to User)",
+  "type": "income | expense",
+  "amount": "number",
+  "description": "string",
+  "category": "string (optional)",
+  "date": "date",
+  "createdAt": "timestamp",
+  "updatedAt": "timestamp"
+}
+```
+
+## Data Flows
+
+1. **Authentication Flow**:
+   ```
+   Client → Login Request → JWT Validation → Token Generation → Client Storage
+   ```
+
+2. **Transaction Creation Flow**:
+   ```
+   Form Input → Validation → API Request → Database Write → Response → UI Update
+   ```
+
+3. **Data Retrieval Flow**:
+   ```
+   Dashboard Load → API Request with Filters → Database Query → Data Transform → Chart Render
+   ```
+
+## Error Handling
+
+The service implements comprehensive error handling:
+- Input validation errors (400 Bad Request)
+- Authentication errors (401 Unauthorized)
+- Authorization errors (403 Forbidden)
+- Resource not found errors (404 Not Found)
+- Server errors (500 Internal Server Error)
+
+## Technology Stack
+
+### Backend Technologies
+- **Language**: Node.js (Latest LTS version)
+- **Framework**: Express.js 4.x
+- **Database**: MongoDB 5.x with Mongoose ODM
+- **Authentication**: JSON Web Tokens (JWT)
+- **Validation**: Express-validator
+
+### Frontend Technologies
+- **Framework**: React.js 18.x
+- **Styling**: Tailwind CSS 3.x
+- **Charts**: Chart.js 4.x
+- **HTTP Client**: Axios
+- **State Management**: React Context API or Redux Toolkit
+
+### Infrastructure
+- **Container**: Docker
+- **Deployment**: AWS EC2
+- **Process Manager**: PM2
+- **Reverse Proxy**: Nginx
+
+## Configuration
+
+### Environment Variables
+- `PORT`: Server port (default: 5000)
+- `MONGODB_URI`: MongoDB connection string
+- `JWT_SECRET`: Secret key for JWT token generation
+- `JWT_EXPIRE`: Token expiration time (default: 7d)
+- `NODE_ENV`: Environment (development/production)
+
+### Docker Configuration
+- `Dockerfile.backend`: Node.js backend container
+- `Dockerfile.frontend`: React frontend container
+- `docker-compose.yml`: Multi-container orchestration
+
+## Security Measures
+
+### Authentication & Authorization
+- JWT tokens with expiration
+- Password hashing using bcrypt
+- Protected API routes requiring valid tokens
+
+### Security Best Practices
+- Input validation and sanitization
+- CORS configuration for API access
+- Environment variables for sensitive data
+- HTTPS enforcement in production
+- Rate limiting for API endpoints
+
+## Performance Optimization
+
+### Backend Optimization
+- Database indexing for faster queries
+- Query optimization for filtering operations
+- Connection pooling for MongoDB
+- Response caching for summary data
+
+### Frontend Optimization
+- Code splitting for faster initial load
+- Lazy loading of chart components
+- Optimized re-renders with React.memo
+- API request debouncing for search
+
+## Deployment Process
+
+### Local Development
+1. Clone repository
+2. Install dependencies: `npm install` in both /backend and /frontend
+3. Set up MongoDB locally or use MongoDB Atlas
+4. Configure environment variables
+5. Run backend: `npm run dev` in /backend
+6. Run frontend: `npm start` in /frontend
+
+### Production Deployment
+1. Build Docker images for backend and frontend
+2. Push images to Docker registry
+3. Launch EC2 instance with Docker installed
+4. Configure security groups (ports 80, 443, 22)
+5. Deploy using docker-compose
+6. Configure Nginx for reverse proxy
+7. Set up SSL certificate (Let's Encrypt)
+
+## Testing Strategy
+
+### Backend Testing
+- Unit tests for business logic
+- Integration tests for API endpoints
+- Database operation tests
+- Authentication flow tests
+
+### Frontend Testing
+- Component unit tests
+- User interaction tests
+- API integration tests
+- End-to-end testing with Cypress
+
+## Common Issues and Solutions
+
+1. **MongoDB Connection Issues**
+   - Verify connection string format
+   - Check network connectivity
+   - Ensure MongoDB service is running
+
+2. **JWT Token Errors**
+   - Verify JWT_SECRET is set
+   - Check token expiration
+   - Ensure proper header format
+
+3. **CORS Issues**
+   - Configure allowed origins
+   - Set proper headers
+   - Handle preflight requests
+
+4. **Docker Deployment Issues**
+   - Check container logs
+   - Verify environment variables
+   - Ensure port mapping is correct
+
+## Summary
+
+The Expense Management System is a full-stack web application that provides users with a comprehensive solution for tracking personal finances. Built with modern technologies and following best practices, it offers secure authentication, efficient data management, and insightful visualizations while being deployable to cloud infrastructure within the targeted 6-hour timeline.

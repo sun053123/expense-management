@@ -1,0 +1,247 @@
+# [PROJECT_NAME] - [MICROSERVICE_NAME] Overview
+
+## Business Context
+
+The `[MICROSERVICE_NAME]` is a [MICROSERVICE_TYPE] in the [ORGANIZATION_NAME] [DOMAIN_NAME] that serves as [PRIMARY_BUSINESS_PURPOSE]. It's part of the [ARCHITECTURE_NAME] architecture.
+
+## Technical Purpose
+
+The microservice [TECHNICAL_PURPOSE_DESCRIPTION]. It [PRIMARY_TECHNICAL_FUNCTION] and [SECONDARY_TECHNICAL_FUNCTION].
+
+## Key Features
+
+1. **[FEATURE_1_NAME]**: [FEATURE_1_DESCRIPTION]
+2. **[FEATURE_2_NAME]**: [FEATURE_2_DESCRIPTION]
+3. **[FEATURE_3_NAME]**: [FEATURE_3_DESCRIPTION]
+4. **[FEATURE_4_NAME]**: [FEATURE_4_DESCRIPTION]
+5. **[FEATURE_5_NAME]**: [FEATURE_5_DESCRIPTION]
+6. **[FEATURE_6_NAME]**: [FEATURE_6_DESCRIPTION]
+
+## Architecture
+
+The microservice follows a [ARCHITECTURE_PATTERN] pattern with the following components:
+
+### Core Components
+
+1. **[LAYER_1_NAME] Layer**
+   - `[COMPONENT_1_NAME]`: [COMPONENT_1_PURPOSE]
+   - [COMPONENT_1_RESPONSIBILITIES]
+
+2. **[LAYER_2_NAME] Layer**
+   - `[COMPONENT_2_NAME]`: [COMPONENT_2_PURPOSE]
+   - [COMPONENT_2_RESPONSIBILITIES]
+
+3. **[LAYER_3_NAME] Layer**
+   - Multiple [LAYER_3_TYPE] implementations for different [LAYER_3_SCOPE]:
+     - `[SERVICE_1_NAME]`: [SERVICE_1_PURPOSE]
+     - `[SERVICE_2_NAME]`: [SERVICE_2_PURPOSE]
+     - `[SERVICE_3_NAME]`: [SERVICE_3_PURPOSE]
+     - `[SERVICE_4_NAME]`: [SERVICE_4_PURPOSE]
+     - `[SERVICE_5_NAME]`: [SERVICE_5_PURPOSE]
+
+4. **[LAYER_4_NAME] Layer**
+   - `[CLIENT_1_NAME]`: [CLIENT_1_PURPOSE]
+   - `[CLIENT_2_NAME]`: [CLIENT_2_PURPOSE]
+
+## Main Flow
+
+1. [STEP_1_DESCRIPTION]
+2. [STEP_2_DESCRIPTION]
+3. [STEP_3_DESCRIPTION]
+4. [STEP_4_DESCRIPTION]
+5. [STEP_5_DESCRIPTION]
+6. [STEP_6_DESCRIPTION]
+7. [STEP_7_DESCRIPTION]
+8. [STEP_8_DESCRIPTION]
+9. [STEP_9_DESCRIPTION]
+
+## Methods/Services
+
+The [MICROSERVICE_NAME] supports multiple [METHOD_TYPE] (identified in the [REQUEST_FORMAT] request):
+
+1. **[METHOD_1_CODE]**: [METHOD_1_DESCRIPTION]
+2. **[METHOD_2_CODE]**: [METHOD_2_DESCRIPTION]
+3. **[METHOD_3_CODE]**: [METHOD_3_DESCRIPTION]
+4. **[METHOD_4_CODE]**: [METHOD_4_DESCRIPTION]
+5. **[METHOD_5_CODE]**: [METHOD_5_DESCRIPTION]
+6. **[METHOD_6_CODE]**: [METHOD_6_DESCRIPTION]
+7. **[METHOD_7_CODE]**: [METHOD_7_DESCRIPTION]
+8. **[METHOD_8_CODE]**: [METHOD_8_DESCRIPTION]
+9. **[METHOD_9_CODE]**: [METHOD_9_DESCRIPTION]
+10. **[METHOD_10_CODE]**: [METHOD_10_DESCRIPTION]
+
+## Detailed Service Example: [EXAMPLE_SERVICE_CODE]
+
+The [EXAMPLE_SERVICE_CODE] service [EXAMPLE_SERVICE_PURPOSE]:
+
+1. **Purpose**: [DETAILED_PURPOSE_DESCRIPTION]
+2. **Input**: [INPUT_PARAMETERS_DESCRIPTION]
+3. **Process**:
+   - [PROCESS_STEP_1]
+   - [PROCESS_STEP_2]
+   - [PROCESS_STEP_3]
+   - [PROCESS_STEP_4]
+4. **Features**:
+   - [FEATURE_1_DETAIL]
+   - [FEATURE_2_DETAIL]
+   - [FEATURE_3_DETAIL]
+   - [FEATURE_4_DETAIL]
+
+## Data Flows
+
+1. **Incoming Request Flow**:
+   ```
+   [REQUEST_SOURCE] → [STEP_1] → [STEP_2] → [STEP_3] → [STEP_4]
+   ```
+
+2. **Outgoing Response Flow**:
+   ```
+   [RESPONSE_STEP_1] → [RESPONSE_STEP_2] → [RESPONSE_STEP_3] → [RESPONSE_STEP_4]
+   ```
+
+3. **[ADDITIONAL_FLOW_NAME] Flow**:
+   ```
+   [FLOW_STEP_1] → [FLOW_STEP_2] → [FLOW_STEP_3]
+   ```
+
+## Error Handling
+
+The service implements structured error handling with:
+- [ERROR_TYPE_1] (like [ERROR_EXAMPLE_1])
+- [ERROR_TYPE_2] (like [ERROR_EXAMPLE_2])
+- [ERROR_STANDARDIZATION_APPROACH]
+- [ERROR_RESPONSE_FORMAT]
+
+## Dependencies
+
+The microservice depends on:
+- [DEPENDENCY_1] for [DEPENDENCY_1_PURPOSE]
+- [DEPENDENCY_2] for [DEPENDENCY_2_PURPOSE]
+- [DEPENDENCY_3] from the [SHARED_LIBRARY_NAME]
+
+## Technology Stack
+
+### Backend Technologies
+- **Language**: [PROGRAMMING_LANGUAGE] [VERSION]
+- **Framework**: [FRAMEWORK_NAME] [VERSION]
+- **Database**: [DATABASE_TYPE] [VERSION]
+- **Message Queue**: [MESSAGE_QUEUE] [VERSION]
+- **Cache**: [CACHE_TECHNOLOGY] [VERSION]
+
+### Infrastructure
+- **Container**: [CONTAINER_TECHNOLOGY]
+- **Orchestration**: [ORCHESTRATION_PLATFORM]
+- **Monitoring**: [MONITORING_TOOLS]
+- **Logging**: [LOGGING_SOLUTION]
+
+## Configuration
+
+### Environment Variables
+- `[ENV_VAR_1]`: [ENV_VAR_1_PURPOSE]
+- `[ENV_VAR_2]`: [ENV_VAR_2_PURPOSE]
+- `[ENV_VAR_3]`: [ENV_VAR_3_PURPOSE]
+
+### Configuration Files
+- `[CONFIG_FILE_1]`: [CONFIG_FILE_1_PURPOSE]
+- `[CONFIG_FILE_2]`: [CONFIG_FILE_2_PURPOSE]
+
+## API Endpoints
+
+### Health & Monitoring
+- `GET /health`: [HEALTH_CHECK_PURPOSE]
+- `GET /metrics`: [METRICS_ENDPOINT_PURPOSE]
+- `GET /ready`: [READINESS_CHECK_PURPOSE]
+
+### Business Endpoints
+- `[HTTP_METHOD] [ENDPOINT_1]`: [ENDPOINT_1_PURPOSE]
+- `[HTTP_METHOD] [ENDPOINT_2]`: [ENDPOINT_2_PURPOSE]
+- `[HTTP_METHOD] [ENDPOINT_3]`: [ENDPOINT_3_PURPOSE]
+
+## Security
+
+### Authentication & Authorization
+- [AUTH_METHOD]: [AUTH_DESCRIPTION]
+- [AUTHORIZATION_APPROACH]: [AUTHORIZATION_DESCRIPTION]
+
+### Security Measures
+- [SECURITY_MEASURE_1]: [SECURITY_MEASURE_1_DESCRIPTION]
+- [SECURITY_MEASURE_2]: [SECURITY_MEASURE_2_DESCRIPTION]
+- [SECURITY_MEASURE_3]: [SECURITY_MEASURE_3_DESCRIPTION]
+
+## Performance Characteristics
+
+### Scalability
+- [SCALABILITY_APPROACH]: [SCALABILITY_DESCRIPTION]
+- [PERFORMANCE_METRIC_1]: [PERFORMANCE_VALUE_1]
+- [PERFORMANCE_METRIC_2]: [PERFORMANCE_VALUE_2]
+
+### Monitoring & Observability
+- [MONITORING_ASPECT_1]: [MONITORING_DESCRIPTION_1]
+- [MONITORING_ASPECT_2]: [MONITORING_DESCRIPTION_2]
+- [OBSERVABILITY_TOOL]: [OBSERVABILITY_PURPOSE]
+
+## Deployment
+
+The service is [DEPLOYMENT_METHOD] and appears to be deployed in a [DEPLOYMENT_ENVIRONMENT] environment based on [DEPLOYMENT_EVIDENCE].
+
+### Deployment Pipeline
+1. [PIPELINE_STEP_1]
+2. [PIPELINE_STEP_2]
+3. [PIPELINE_STEP_3]
+4. [PIPELINE_STEP_4]
+
+### Environment Configuration
+- **Development**: [DEV_CONFIG_DESCRIPTION]
+- **Staging**: [STAGING_CONFIG_DESCRIPTION]
+- **Production**: [PROD_CONFIG_DESCRIPTION]
+
+## Testing Strategy
+
+### Test Types
+- **Unit Tests**: [UNIT_TEST_APPROACH]
+- **Integration Tests**: [INTEGRATION_TEST_APPROACH]
+- **End-to-End Tests**: [E2E_TEST_APPROACH]
+- **Performance Tests**: [PERFORMANCE_TEST_APPROACH]
+
+### Test Coverage
+- [COVERAGE_METRIC]: [COVERAGE_TARGET]
+- [QUALITY_GATE]: [QUALITY_REQUIREMENT]
+
+## Development Workflow
+
+### Local Development
+1. [LOCAL_SETUP_STEP_1]
+2. [LOCAL_SETUP_STEP_2]
+3. [LOCAL_SETUP_STEP_3]
+
+### Code Review Process
+1. [REVIEW_STEP_1]
+2. [REVIEW_STEP_2]
+3. [REVIEW_STEP_3]
+
+## Summary
+
+The [MICROSERVICE_NAME] microservice serves as [SUMMARY_PURPOSE] in the [ORGANIZATION_NAME] [DOMAIN_NAME]. It handles [SUMMARY_CAPABILITIES], providing [SUMMARY_VALUE_PROPOSITION] while leveraging [SUMMARY_TECHNICAL_APPROACH].
+
+## Example Customization:
+
+Project Name: Customer Data Platform
+Microservice: user-profile-service
+Microservice Type: RESTful API service
+Organization: TechCorp
+Domain: [Project]
+Primary Business Purpose: a centralized user profile management system
+Architecture Name: microservices
+Technical Purpose: manages user profile data and provides unified access to customer information
+Primary Technical Function: stores and retrieves user profiles
+Secondary Technical Function: validates and enriches customer data
+
+Programming Language: Go 1.19
+Framework: Gin HTTP Framework
+Database: PostgreSQL 14
+Message Queue: Apache Kafka
+Cache: Redis 6.2
+Container Technology: Docker
+Orchestration Platform: Kubernetes
+Monitoring Tools: Prometheus + Grafana
+Logging Solution: ELK Stack
