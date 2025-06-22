@@ -1,10 +1,24 @@
 // Common types and interfaces for the expense management system
+//
+// This file contains all shared types, interfaces, and type definitions used
+// throughout the application. It provides a centralized location for type
+// definitions to ensure consistency and maintainability.
+//
+// The types are organized into logical groups:
+// - Core Entity Types (User, Transaction)
+// - Input/Output Types (GraphQL inputs, API responses)
+// - Service and Repository Interfaces
+// - Validation and Error Types
 
 import {
   User as PrismaUser,
   Transaction as PrismaTransaction,
   TransactionType as PrismaTransactionType,
 } from "@prisma/client";
+
+// ===================================================================
+// CORE ENTITY TYPES
+// ===================================================================
 
 export interface User extends PrismaUser {}
 
@@ -14,7 +28,11 @@ export interface Transaction extends Omit<PrismaTransaction, "amount"> {
 
 export { PrismaTransactionType as TransactionType };
 
-// GraphQL Input Types
+// ===================================================================
+// INPUT/OUTPUT TYPES
+// ===================================================================
+
+// Transaction Input Types
 export interface TransactionInput {
   type: PrismaTransactionType;
   amount: number;
@@ -28,6 +46,7 @@ export interface TransactionFilter {
   endDate?: string;
 }
 
+// Authentication Input Types
 export interface LoginInput {
   email: string;
   password: string;
@@ -38,7 +57,38 @@ export interface RegisterInput {
   password: string;
 }
 
-// Response Types
+// Validation Types
+export interface ValidationResult {
+  valid: boolean;
+  errors: string[];
+}
+
+export interface ValidationError {
+  field: string;
+  message: string;
+  code?: string;
+}
+
+// Pagination Types
+export interface PaginationInput {
+  page?: number;
+  limit?: number;
+}
+
+export interface PaginatedResponse<T> {
+  data: T[];
+  pagination: {
+    page: number;
+    limit: number;
+    total: number;
+    totalPages: number;
+  };
+}
+
+// ===================================================================
+// RESPONSE TYPES
+// ===================================================================
+
 export interface AuthPayload {
   token: string;
   user: Omit<User, "password">;
@@ -51,12 +101,6 @@ export interface Summary {
   transactionCount: number;
 }
 
-// Context Types
-export interface GraphQLContext {
-  user?: Omit<User, "password">;
-  token?: string;
-}
-
 // Service Response Types
 export interface ServiceResponse<T> {
   success: boolean;
@@ -64,7 +108,43 @@ export interface ServiceResponse<T> {
   error?: string;
 }
 
-// Repository Interfaces
+// Enhanced Service Response with additional metadata
+export interface DetailedServiceResponse<T> extends ServiceResponse<T> {
+  timestamp?: Date;
+  requestId?: string;
+  validationErrors?: ValidationError[];
+}
+
+// API Response wrapper for consistent API responses
+export interface ApiResponse<T> {
+  success: boolean;
+  data?: T;
+  error?: {
+    message: string;
+    code?: string;
+    details?: any;
+  };
+  meta?: {
+    timestamp: string;
+    requestId?: string;
+    version?: string;
+  };
+}
+
+// ===================================================================
+// CONTEXT TYPES
+// ===================================================================
+
+export interface GraphQLContext {
+  user?: Omit<User, "password">;
+  token?: string;
+  requestId?: string;
+}
+
+// ===================================================================
+// REPOSITORY INTERFACES
+// ===================================================================
+
 export interface IUserRepository {
   findById(id: number): Promise<User | null>;
   findByEmail(email: string): Promise<User | null>;
@@ -90,7 +170,10 @@ export interface ITransactionRepository {
   getSummary(userId: number): Promise<Summary>;
 }
 
-// Service Interfaces
+// ===================================================================
+// SERVICE INTERFACES
+// ===================================================================
+
 export interface IAuthService {
   login(email: string, password: string): Promise<ServiceResponse<AuthPayload>>;
   register(
@@ -123,4 +206,61 @@ export interface ITransactionService {
     userId: number
   ): Promise<ServiceResponse<boolean>>;
   getSummary(userId: number): Promise<ServiceResponse<Summary>>;
+}
+
+// ===================================================================
+// UTILITY TYPES
+// ===================================================================
+
+// Type for database entity creation (without auto-generated fields)
+export type CreateEntityData<T> = Omit<T, "id" | "createdAt" | "updatedAt">;
+
+// Type for database entity updates (partial data)
+export type UpdateEntityData<T> = Partial<
+  Omit<T, "id" | "createdAt" | "updatedAt">
+>;
+
+// Type for safe user data (without password)
+export type SafeUser = Omit<User, "password">;
+
+// Type for transaction creation data
+export type CreateTransactionData = CreateEntityData<Transaction>;
+
+// Type for transaction update data
+export type UpdateTransactionData = UpdateEntityData<Transaction>;
+
+// Enum-like type for transaction types (for better type safety)
+export const TRANSACTION_TYPES = {
+  INCOME: "INCOME" as const,
+  EXPENSE: "EXPENSE" as const,
+} as const;
+
+// Type for validation schema results (compatible with Zod)
+export interface SchemaValidationResult<T> {
+  success: boolean;
+  data?: T;
+  error?: {
+    errors: Array<{
+      path: (string | number)[];
+      message: string;
+      code?: string;
+    }>;
+  };
+}
+
+// Type for error handling in services
+export interface ServiceError {
+  message: string;
+  code?: string;
+  statusCode?: number;
+  details?: any;
+}
+
+// Type for logging context
+export interface LogContext {
+  userId?: number;
+  transactionId?: number;
+  requestId?: string;
+  operation?: string;
+  [key: string]: any;
 }

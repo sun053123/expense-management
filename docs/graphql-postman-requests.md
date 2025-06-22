@@ -1,6 +1,15 @@
 # GraphQL Postman Requests for Expense Management System
 
-## Base Configuration
+## Quick Start
+
+### Postman Collection
+
+Import the ready-to-use Postman collection and environment:
+
+- **Collection**: `docs/Expense-Management-GraphQL.postman_collection.json`
+- **Environment**: `docs/Expense-Management-Local.postman_environment.json`
+
+### Base Configuration
 
 - **GraphQL Endpoint**: `http://localhost:8888/graphql`
 - **Health Check**: `http://localhost:8888/health`
@@ -213,31 +222,53 @@ curl -X POST http://localhost:8888/graphql \
   }'
 ```
 
-## Notes for Postman Usage
+## Using the Postman Collection
 
-1. **Environment Variables**: Create a Postman environment with:
-   - `baseUrl`: `http://localhost:8888`
-   - `jwtToken`: Store the JWT token from login response
+### Import Instructions
 
-2. **Authorization**: For protected endpoints, add to Headers:
-   - Key: `Authorization`
-   - Value: `Bearer {{jwtToken}}`
+1. Open Postman
+2. Click "Import" button
+3. Select the collection file: `docs/Expense-Management-GraphQL.postman_collection.json`
+4. Import the environment file: `docs/Expense-Management-Local.postman_environment.json`
+5. Select the "Expense Management - Local Development" environment
 
-3. **Pre-request Scripts**: Use this script to automatically set the token:
-   ```javascript
-   // After login, save token to environment
-   if (pm.response.json().data && pm.response.json().data.login) {
-     pm.environment.set("jwtToken", pm.response.json().data.login.token);
-   }
-   ```
+### Authentication Flow
 
-4. **Transaction Types**: Use `INCOME` or `EXPENSE` for transaction type
-5. **Date Format**: Use ISO date format (YYYY-MM-DD)
-6. **Amount**: Use decimal numbers (e.g., 25.50, 100.00)
+1. **Register User** or **Login User** - This will automatically save the JWT token
+2. Use any protected endpoint - The token is automatically included in requests
+
+### Collection Features
+
+- **Automatic Token Management**: Login/Register requests automatically save JWT tokens
+- **Environment Variables**: Pre-configured with local development settings
+- **Request Organization**: Grouped by functionality (Auth, Queries, Mutations, Utilities)
+- **Bearer Token Auth**: Automatically applied to protected endpoints
+
+## Manual cURL Usage (Alternative to Postman)
+
+### Environment Setup for cURL
+
+1. **Base URL**: `http://localhost:8888/graphql`
+2. **Content-Type**: Always include `application/json` header
+3. **Authorization**: For protected endpoints, include `Authorization: Bearer <JWT_TOKEN>`
+
+### Getting JWT Token
+
+1. Use Register or Login mutation to get a JWT token
+2. Copy the token from the response
+3. Use it in subsequent requests: `Authorization: Bearer <your_token_here>`
+
+### Data Format Guidelines
+
+- **Transaction Types**: Use `INCOME` or `EXPENSE` for transaction type
+- **Date Format**: Use ISO date format (YYYY-MM-DD)
+- **Amount**: Use decimal numbers (e.g., 25.50, 100.00)
+- **IDs**: Use string format for GraphQL ID type
 
 ## Error Handling
 
 Common error responses:
+
 - `401 Unauthorized`: Missing or invalid JWT token
 - `400 Bad Request`: Invalid input data
 - `403 Forbidden`: Access denied to resource

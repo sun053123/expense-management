@@ -205,7 +205,7 @@ export class AuthUtils {
     try {
       const validation = AuthValidation.validateLogin({
         email,
-        password: "temp",
+        password: "temppass", // Use valid password length for login schema (6+ chars)
       });
       return validation.success;
     } catch (error) {

@@ -13,24 +13,25 @@ const AuthService_1 = require("../../services/AuthService");
 const UserRepository_1 = require("../../repositories/UserRepository");
 const auth_1 = require("../../utils/auth");
 // Mock dependencies
-jest.mock('../../repositories/UserRepository');
-jest.mock('../../utils/auth');
+jest.mock("../../repositories/UserRepository");
+jest.mock("../../utils/auth");
 const MockedUserRepository = UserRepository_1.UserRepository;
 const MockedAuthUtils = auth_1.AuthUtils;
-describe('AuthService', () => {
+describe("AuthService", () => {
     let authService;
     let mockUserRepository;
     beforeEach(() => {
         jest.clearAllMocks();
-        mockUserRepository = new MockedUserRepository();
+        mockUserRepository =
+            new MockedUserRepository();
         authService = new AuthService_1.AuthService();
         // Replace the repository instance
         authService.userRepository = mockUserRepository;
     });
-    describe('login', () => {
-        const validEmail = 'test@example.com';
-        const validPassword = 'password123';
-        const hashedPassword = 'hashedpassword';
+    describe("login", () => {
+        const validEmail = "test@example.com";
+        const validPassword = "password123";
+        const hashedPassword = "hashedpassword";
         const mockUser = {
             id: 1,
             email: validEmail,
@@ -38,15 +39,15 @@ describe('AuthService', () => {
             createdAt: new Date(),
             updatedAt: new Date(),
         };
-        it('should login successfully with valid credentials', () => __awaiter(void 0, void 0, void 0, function* () {
+        it("should login successfully with valid credentials", () => __awaiter(void 0, void 0, void 0, function* () {
             MockedAuthUtils.isValidEmail.mockReturnValue(true);
             mockUserRepository.findByEmail.mockResolvedValue(mockUser);
             MockedAuthUtils.comparePassword.mockResolvedValue(true);
-            MockedAuthUtils.generateToken.mockReturnValue('jwt-token');
+            MockedAuthUtils.generateToken.mockReturnValue("jwt-token");
             const result = yield authService.login(validEmail, validPassword);
             expect(result.success).toBe(true);
             expect(result.data).toEqual({
-                token: 'jwt-token',
+                token: "jwt-token",
                 user: {
                     id: mockUser.id,
                     email: mockUser.email,
@@ -55,38 +56,38 @@ describe('AuthService', () => {
                 },
             });
         }));
-        it('should fail with missing email or password', () => __awaiter(void 0, void 0, void 0, function* () {
-            const result = yield authService.login('', validPassword);
+        it("should fail with missing email or password", () => __awaiter(void 0, void 0, void 0, function* () {
+            const result = yield authService.login("", validPassword);
             expect(result.success).toBe(false);
-            expect(result.error).toBe('Email and password are required');
+            expect(result.error).toBe("email: Email is required");
         }));
-        it('should fail with invalid email format', () => __awaiter(void 0, void 0, void 0, function* () {
+        it("should fail with invalid email format", () => __awaiter(void 0, void 0, void 0, function* () {
             MockedAuthUtils.isValidEmail.mockReturnValue(false);
-            const result = yield authService.login('invalid-email', validPassword);
+            const result = yield authService.login("invalid-email", validPassword);
             expect(result.success).toBe(false);
-            expect(result.error).toBe('Invalid email format');
+            expect(result.error).toBe("email: Please provide a valid email address");
         }));
-        it('should fail with non-existent user', () => __awaiter(void 0, void 0, void 0, function* () {
+        it("should fail with non-existent user", () => __awaiter(void 0, void 0, void 0, function* () {
             MockedAuthUtils.isValidEmail.mockReturnValue(true);
             mockUserRepository.findByEmail.mockResolvedValue(null);
             const result = yield authService.login(validEmail, validPassword);
             expect(result.success).toBe(false);
-            expect(result.error).toBe('Invalid email or password');
+            expect(result.error).toBe("Invalid email or password");
         }));
-        it('should fail with incorrect password', () => __awaiter(void 0, void 0, void 0, function* () {
+        it("should fail with incorrect password", () => __awaiter(void 0, void 0, void 0, function* () {
             MockedAuthUtils.isValidEmail.mockReturnValue(true);
             mockUserRepository.findByEmail.mockResolvedValue(mockUser);
             MockedAuthUtils.comparePassword.mockResolvedValue(false);
-            const result = yield authService.login(validEmail, 'wrongpassword');
+            const result = yield authService.login(validEmail, "wrongpassword");
             expect(result.success).toBe(false);
-            expect(result.error).toBe('Invalid email or password');
+            expect(result.error).toBe("Invalid email or password");
         }));
     });
-    describe('register', () => {
-        const validEmail = 'newuser@example.com';
-        const validPassword = 'password123';
-        const hashedPassword = 'hashedpassword';
-        it('should register successfully with valid data', () => __awaiter(void 0, void 0, void 0, function* () {
+    describe("register", () => {
+        const validEmail = "newuser@example.com";
+        const validPassword = "Password123"; // Meets registration requirements: uppercase, lowercase, number
+        const hashedPassword = "hashedpassword";
+        it("should register successfully with valid data", () => __awaiter(void 0, void 0, void 0, function* () {
             MockedAuthUtils.isValidEmail.mockReturnValue(true);
             MockedAuthUtils.isValidPassword.mockReturnValue({ valid: true });
             mockUserRepository.findByEmail.mockResolvedValue(null);
@@ -99,11 +100,11 @@ describe('AuthService', () => {
                 updatedAt: new Date(),
             };
             mockUserRepository.create.mockResolvedValue(newUser);
-            MockedAuthUtils.generateToken.mockReturnValue('jwt-token');
+            MockedAuthUtils.generateToken.mockReturnValue("jwt-token");
             const result = yield authService.register(validEmail, validPassword);
             expect(result.success).toBe(true);
             expect(result.data).toEqual({
-                token: 'jwt-token',
+                token: "jwt-token",
                 user: {
                     id: newUser.id,
                     email: newUser.email,
@@ -112,28 +113,28 @@ describe('AuthService', () => {
                 },
             });
         }));
-        it('should fail with missing email or password', () => __awaiter(void 0, void 0, void 0, function* () {
-            const result = yield authService.register('', validPassword);
+        it("should fail with missing email or password", () => __awaiter(void 0, void 0, void 0, function* () {
+            const result = yield authService.register("", validPassword);
             expect(result.success).toBe(false);
-            expect(result.error).toBe('Email and password are required');
+            expect(result.error).toBe("email: Email is required");
         }));
-        it('should fail with invalid email format', () => __awaiter(void 0, void 0, void 0, function* () {
+        it("should fail with invalid email format", () => __awaiter(void 0, void 0, void 0, function* () {
             MockedAuthUtils.isValidEmail.mockReturnValue(false);
-            const result = yield authService.register('invalid-email', validPassword);
+            const result = yield authService.register("invalid-email", validPassword);
             expect(result.success).toBe(false);
-            expect(result.error).toBe('Invalid email format');
+            expect(result.error).toBe("email: Please provide a valid email address");
         }));
-        it('should fail with invalid password', () => __awaiter(void 0, void 0, void 0, function* () {
+        it("should fail with invalid password", () => __awaiter(void 0, void 0, void 0, function* () {
             MockedAuthUtils.isValidEmail.mockReturnValue(true);
             MockedAuthUtils.isValidPassword.mockReturnValue({
                 valid: false,
-                message: 'Password too short'
+                message: "Password too short",
             });
-            const result = yield authService.register(validEmail, 'short');
+            const result = yield authService.register(validEmail, "short");
             expect(result.success).toBe(false);
-            expect(result.error).toBe('Password too short');
+            expect(result.error).toBe("password: Password must be at least 8 characters long");
         }));
-        it('should fail with existing user', () => __awaiter(void 0, void 0, void 0, function* () {
+        it("should fail with existing user", () => __awaiter(void 0, void 0, void 0, function* () {
             MockedAuthUtils.isValidEmail.mockReturnValue(true);
             MockedAuthUtils.isValidPassword.mockReturnValue({ valid: true });
             const existingUser = {
@@ -146,20 +147,23 @@ describe('AuthService', () => {
             mockUserRepository.findByEmail.mockResolvedValue(existingUser);
             const result = yield authService.register(validEmail, validPassword);
             expect(result.success).toBe(false);
-            expect(result.error).toBe('User with this email already exists');
+            expect(result.error).toBe("A user with this email address already exists");
         }));
     });
-    describe('verifyToken', () => {
-        const validToken = 'valid-jwt-token';
+    describe("verifyToken", () => {
+        const validToken = "valid-jwt-token";
         const mockUser = {
             id: 1,
-            email: 'test@example.com',
-            password: 'hashedpassword',
+            email: "test@example.com",
+            password: "hashedpassword",
             createdAt: new Date(),
             updatedAt: new Date(),
         };
-        it('should verify valid token successfully', () => __awaiter(void 0, void 0, void 0, function* () {
-            MockedAuthUtils.verifyToken.mockReturnValue({ id: 1, email: 'test@example.com' });
+        it("should verify valid token successfully", () => __awaiter(void 0, void 0, void 0, function* () {
+            MockedAuthUtils.verifyToken.mockReturnValue({
+                id: 1,
+                email: "test@example.com",
+            });
             mockUserRepository.findById.mockResolvedValue(mockUser);
             const result = yield authService.verifyToken(validToken);
             expect(result.success).toBe(true);
@@ -170,18 +174,21 @@ describe('AuthService', () => {
                 updatedAt: mockUser.updatedAt,
             });
         }));
-        it('should fail with invalid token', () => __awaiter(void 0, void 0, void 0, function* () {
+        it("should fail with invalid token", () => __awaiter(void 0, void 0, void 0, function* () {
             MockedAuthUtils.verifyToken.mockReturnValue(null);
-            const result = yield authService.verifyToken('invalid-token');
+            const result = yield authService.verifyToken("invalid-token");
             expect(result.success).toBe(false);
-            expect(result.error).toBe('Invalid or expired token');
+            expect(result.error).toBe("Invalid or expired token");
         }));
-        it('should fail when user not found', () => __awaiter(void 0, void 0, void 0, function* () {
-            MockedAuthUtils.verifyToken.mockReturnValue({ id: 1, email: 'test@example.com' });
+        it("should fail when user not found", () => __awaiter(void 0, void 0, void 0, function* () {
+            MockedAuthUtils.verifyToken.mockReturnValue({
+                id: 1,
+                email: "test@example.com",
+            });
             mockUserRepository.findById.mockResolvedValue(null);
             const result = yield authService.verifyToken(validToken);
             expect(result.success).toBe(false);
-            expect(result.error).toBe('User not found');
+            expect(result.error).toBe("User not found");
         }));
     });
 });
