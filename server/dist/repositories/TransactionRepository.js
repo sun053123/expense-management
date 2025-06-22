@@ -14,146 +14,394 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TransactionRepository = void 0;
 const types_1 = require("../types");
-const connection_1 = require("../database/connection");
+const postgres_1 = __importDefault(require("../database/postgres"));
 const logger_1 = __importDefault(require("../utils/logger"));
+/**
+ * TransactionRepository - Data access layer for transaction operations
+ *
+ * This repository handles all database operations for transactions using raw PostgreSQL queries.
+ * It provides a clean interface for transaction CRUD operations with proper error handling,
+ * SQL injection protection, and comprehensive logging.
+ *
+ * Key Features:
+ * - Raw SQL queries with parameterized statements for security
+ * - Transaction retrieval by ID and user ID with filtering
+ * - Transaction creation, updates, and deletion with data validation
+ * - Financial summary calculations with optimized aggregations
+ * - Comprehensive error handling and logging
+ * - Type-safe operations with TypeScript
+ * - Optimized queries for performance
+ *
+ * The repository follows clean architecture principles and provides consistent
+ * patterns for all database operations.
+ */
 class TransactionRepository {
+    /**
+     * Find a transaction by its unique ID
+     *
+     * This method retrieves a single transaction from the database by its ID.
+     * It includes proper error handling and data transformation for the amount field.
+     *
+     * @param id - Unique transaction identifier
+     * @returns Transaction object if found, null if not found
+     * @throws Error if database operation fails
+     */
     findById(id) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const transaction = yield connection_1.prisma.transaction.findUnique({
-                    where: { id },
-                });
-                if (!transaction)
+                logger_1.default.debug(`Finding transaction by ID: ${id}`);
+                const query = `
+        SELECT
+          id,
+          user_id as "userId",
+          type,
+          amount,
+          description,
+          date,
+          created_at as "createdAt",
+          updated_at as "updatedAt"
+        FROM transactions
+        WHERE id = $1
+      `;
+                const transaction = yield postgres_1.default.queryOne(query, [id]);
+                if (!transaction) {
+                    logger_1.default.debug(`Transaction with ID ${id} not found`);
                     return null;
-                return Object.assign(Object.assign({}, transaction), { amount: Number(transaction.amount) });
+                }
+                logger_1.default.debug(`Successfully found transaction ${id}`);
+                // Transform amount from string to number for easier handling
+                return this.transformTransactionData(transaction);
             }
             catch (error) {
-                logger_1.default.error(`Error finding transaction by id ${id}:`, error);
-                throw new Error("Failed to find transaction");
+                logger_1.default.error(`Database error finding transaction by ID ${id}:`, error);
+                throw new Error(`Failed to retrieve transaction with ID ${id}`);
             }
         });
     }
+    /**
+     * Find all transactions for a specific user with optional filtering
+     *
+     * This method retrieves transactions for a user with support for filtering by:
+     * - Transaction type (INCOME or EXPENSE)
+     * - Date range (start and end dates)
+     * Results are ordered by date in descending order (newest first).
+     *
+     * @param userId - User ID to find transactions for
+     * @param filter - Optional filter parameters for type and date range
+     * @returns Array of transactions matching the criteria
+     * @throws Error if database operation fails
+     */
     findByUserId(userId, filter) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const where = { userId };
-                // Apply filters
-                if (filter === null || filter === void 0 ? void 0 : filter.type) {
-                    where.type = filter.type;
-                }
-                if ((filter === null || filter === void 0 ? void 0 : filter.startDate) || (filter === null || filter === void 0 ? void 0 : filter.endDate)) {
-                    where.date = {};
-                    if (filter.startDate) {
-                        where.date.gte = new Date(filter.startDate);
-                    }
-                    if (filter.endDate) {
-                        where.date.lte = new Date(filter.endDate);
-                    }
-                }
-                const transactions = yield connection_1.prisma.transaction.findMany({
-                    where,
-                    orderBy: { date: "desc" },
-                });
-                return transactions.map((transaction) => (Object.assign(Object.assign({}, transaction), { amount: Number(transaction.amount) })));
+                logger_1.default.debug(`Finding transactions for user ${userId} with filter:`, filter);
+                // Build the SQL query with dynamic WHERE conditions
+                const { whereClause, params } = this.buildSQLWhereClause(userId, filter);
+                const query = `
+        SELECT
+          id,
+          user_id as "userId",
+          type,
+          amount,
+          description,
+          date,
+          created_at as "createdAt",
+          updated_at as "updatedAt"
+        FROM transactions
+        ${whereClause}
+        ORDER BY date DESC
+      `;
+                const result = yield postgres_1.default.query(query, params);
+                const transactions = result.rows;
+                logger_1.default.debug(`Found ${transactions.length} transactions for user ${userId}`);
+                // Transform all transactions to ensure proper data types
+                return transactions.map((transaction) => this.transformTransactionData(transaction));
             }
             catch (error) {
-                logger_1.default.error(`Error finding transactions for user ${userId}:`, error);
-                throw new Error("Failed to find transactions");
+                logger_1.default.error(`Database error finding transactions for user ${userId}:`, error);
+                throw new Error(`Failed to retrieve transactions for user ${userId}`);
             }
         });
     }
+    /**
+     * Create a new transaction in the database
+     *
+     * This method creates a new transaction with the provided data.
+     * It includes proper error handling and data transformation.
+     *
+     * @param transactionData - Transaction data without ID and timestamps
+     * @returns Created transaction with generated ID and timestamps
+     * @throws Error if database operation fails
+     */
     create(transactionData) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const transaction = yield connection_1.prisma.transaction.create({
-                    data: {
-                        userId: transactionData.userId,
-                        type: transactionData.type,
-                        amount: transactionData.amount,
-                        description: transactionData.description,
-                        date: transactionData.date,
-                    },
+                logger_1.default.debug(`Creating transaction for user ${transactionData.userId}:`, {
+                    type: transactionData.type,
+                    amount: transactionData.amount,
+                    date: transactionData.date,
                 });
-                return Object.assign(Object.assign({}, transaction), { amount: Number(transaction.amount) });
+                const query = `
+        INSERT INTO transactions (user_id, type, amount, description, date, created_at, updated_at)
+        VALUES ($1, $2, $3, $4, $5, NOW(), NOW())
+        RETURNING
+          id,
+          user_id as "userId",
+          type,
+          amount,
+          description,
+          date,
+          created_at as "createdAt",
+          updated_at as "updatedAt"
+      `;
+                const params = [
+                    transactionData.userId,
+                    transactionData.type,
+                    transactionData.amount,
+                    transactionData.description,
+                    transactionData.date,
+                ];
+                const transaction = yield postgres_1.default.queryOne(query, params);
+                if (!transaction) {
+                    throw new Error("Failed to create transaction - no data returned");
+                }
+                logger_1.default.info(`Transaction created successfully with ID: ${transaction.id}`);
+                // Transform amount from string to number for easier handling
+                return this.transformTransactionData(transaction);
             }
             catch (error) {
-                logger_1.default.error("Error creating transaction:", error);
-                throw new Error("Failed to create transaction");
+                logger_1.default.error("Database error creating transaction:", error);
+                // Handle specific database constraint errors
+                if (this.isDatabaseConstraintError(error)) {
+                    throw new Error("Invalid transaction data provided");
+                }
+                throw new Error("Failed to create transaction in database");
             }
         });
     }
+    /**
+     * Update an existing transaction with partial data
+     *
+     * This method updates a transaction with the provided partial data.
+     * It includes proper error handling for not found cases and data transformation.
+     *
+     * @param id - Transaction ID to update
+     * @param transactionData - Partial transaction data to update
+     * @returns Updated transaction if found, null if not found
+     * @throws Error if database operation fails
+     */
     update(id, transactionData) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const transaction = yield connection_1.prisma.transaction.update({
-                    where: { id },
-                    data: Object.assign(Object.assign(Object.assign(Object.assign({}, (transactionData.type && { type: transactionData.type })), (transactionData.amount !== undefined && {
-                        amount: transactionData.amount,
-                    })), (transactionData.description !== undefined && {
-                        description: transactionData.description,
-                    })), (transactionData.date && { date: transactionData.date })),
-                });
-                return Object.assign(Object.assign({}, transaction), { amount: Number(transaction.amount) });
-            }
-            catch (error) {
-                logger_1.default.error(`Error updating transaction ${id}:`, error);
-                if (error instanceof Error &&
-                    error.message.includes("Record to update not found")) {
+                logger_1.default.debug(`Updating transaction ${id} with data:`, transactionData);
+                // Build update data object with only provided fields
+                const { updateFields, params } = this.buildSQLUpdateData(transactionData);
+                if (updateFields.length === 0) {
+                    // No fields to update, return current transaction
+                    logger_1.default.debug(`No fields to update for transaction ID: ${id}`);
+                    return yield this.findById(id);
+                }
+                // Add updated_at timestamp and transaction ID
+                updateFields.push(`updated_at = NOW()`);
+                params.push(id);
+                const query = `
+        UPDATE transactions
+        SET ${updateFields.join(", ")}
+        WHERE id = $${params.length}
+        RETURNING
+          id,
+          user_id as "userId",
+          type,
+          amount,
+          description,
+          date,
+          created_at as "createdAt",
+          updated_at as "updatedAt"
+      `;
+                const transaction = yield postgres_1.default.queryOne(query, params);
+                if (!transaction) {
+                    logger_1.default.warn(`Transaction ${id} not found for update`);
                     return null;
                 }
-                throw new Error("Failed to update transaction");
+                logger_1.default.info(`Transaction ${id} updated successfully`);
+                // Transform amount from string to number for easier handling
+                return this.transformTransactionData(transaction);
+            }
+            catch (error) {
+                logger_1.default.error(`Database error updating transaction ${id}:`, error);
+                // Handle specific database constraint errors
+                if (this.isDatabaseConstraintError(error)) {
+                    throw new Error("Invalid transaction data provided for update");
+                }
+                throw new Error(`Failed to update transaction ${id} in database`);
             }
         });
     }
+    /**
+     * Delete a transaction from the database
+     *
+     * This method deletes a transaction by its ID.
+     * It includes proper error handling for not found cases.
+     *
+     * @param id - Transaction ID to delete
+     * @returns true if deleted successfully, false if not found
+     * @throws Error if database operation fails
+     */
     delete(id) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                yield connection_1.prisma.transaction.delete({
-                    where: { id },
-                });
+                logger_1.default.debug(`Deleting transaction ${id}`);
+                const query = `DELETE FROM transactions WHERE id = $1`;
+                const result = yield postgres_1.default.query(query, [id]);
+                if (result.rowCount === 0) {
+                    logger_1.default.warn(`Transaction ${id} not found for deletion`);
+                    return false;
+                }
+                logger_1.default.info(`Transaction ${id} deleted successfully`);
                 return true;
             }
             catch (error) {
-                logger_1.default.error(`Error deleting transaction ${id}:`, error);
-                if (error instanceof Error &&
-                    error.message.includes("Record to delete does not exist")) {
-                    return false;
-                }
-                throw new Error("Failed to delete transaction");
+                logger_1.default.error(`Database error deleting transaction ${id}:`, error);
+                throw new Error(`Failed to delete transaction ${id} from database`);
             }
         });
     }
+    /**
+     * Get financial summary for a user
+     *
+     * This method calculates financial summary including total income, total expense,
+     * balance, and transaction count for a specific user. It uses database aggregation
+     * for optimal performance.
+     *
+     * @param userId - User ID to calculate summary for
+     * @returns Financial summary with totals and balance
+     * @throws Error if database operation fails
+     */
     getSummary(userId) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const [incomeResult, expenseResult, transactionCount] = yield Promise.all([
-                    connection_1.prisma.transaction.aggregate({
-                        where: { userId, type: types_1.TransactionType.INCOME },
-                        _sum: { amount: true },
-                    }),
-                    connection_1.prisma.transaction.aggregate({
-                        where: { userId, type: types_1.TransactionType.EXPENSE },
-                        _sum: { amount: true },
-                    }),
-                    connection_1.prisma.transaction.count({
-                        where: { userId },
-                    }),
+                logger_1.default.debug(`Calculating summary for user ${userId}`);
+                // Execute all aggregation queries in parallel for better performance
+                const [incomeResult, expenseResult, countResult] = yield Promise.all([
+                    postgres_1.default.queryOne(`SELECT SUM(amount) as total FROM transactions WHERE user_id = $1 AND type = $2`, [userId, types_1.TransactionType.INCOME]),
+                    postgres_1.default.queryOne(`SELECT SUM(amount) as total FROM transactions WHERE user_id = $1 AND type = $2`, [userId, types_1.TransactionType.EXPENSE]),
+                    postgres_1.default.queryOne(`SELECT COUNT(*) as count FROM transactions WHERE user_id = $1`, [userId]),
                 ]);
-                const totalIncome = Number(incomeResult._sum.amount) || 0;
-                const totalExpense = Number(expenseResult._sum.amount) || 0;
+                // Convert string amounts to numbers and handle null values
+                const totalIncome = Number(incomeResult === null || incomeResult === void 0 ? void 0 : incomeResult.total) || 0;
+                const totalExpense = Number(expenseResult === null || expenseResult === void 0 ? void 0 : expenseResult.total) || 0;
                 const balance = totalIncome - totalExpense;
-                return {
+                const transactionCount = parseInt((countResult === null || countResult === void 0 ? void 0 : countResult.count) || "0", 10);
+                const summary = {
                     totalIncome,
                     totalExpense,
                     balance,
                     transactionCount,
                 };
+                logger_1.default.debug(`Summary calculated for user ${userId}:`, summary);
+                return summary;
             }
             catch (error) {
-                logger_1.default.error(`Error getting summary for user ${userId}:`, error);
-                throw new Error("Failed to get summary");
+                logger_1.default.error(`Database error calculating summary for user ${userId}:`, error);
+                throw new Error(`Failed to calculate financial summary for user ${userId}`);
             }
         });
+    }
+    // ===================================================================
+    // PRIVATE HELPER METHODS
+    // Following clean architecture patterns for better code organization
+    // ===================================================================
+    /**
+     * Transform raw transaction data from database to application format
+     *
+     * @param transaction - Raw transaction data from PostgreSQL
+     * @returns Transformed transaction with proper data types
+     */
+    transformTransactionData(transaction) {
+        return Object.assign(Object.assign({}, transaction), { amount: Number(transaction.amount) });
+    }
+    /**
+     * Build SQL WHERE clause for transaction queries with filtering
+     *
+     * @param userId - User ID for the base filter
+     * @param filter - Optional filter parameters
+     * @returns SQL WHERE clause and parameters
+     */
+    buildSQLWhereClause(userId, filter) {
+        const conditions = ["user_id = $1"];
+        const params = [userId];
+        let paramIndex = 2;
+        // Apply type filter if provided
+        if (filter === null || filter === void 0 ? void 0 : filter.type) {
+            conditions.push(`type = $${paramIndex}`);
+            params.push(filter.type);
+            paramIndex++;
+        }
+        // Apply date range filter if provided
+        if (filter === null || filter === void 0 ? void 0 : filter.startDate) {
+            conditions.push(`date >= $${paramIndex}`);
+            params.push(filter.startDate);
+            paramIndex++;
+        }
+        if (filter === null || filter === void 0 ? void 0 : filter.endDate) {
+            conditions.push(`date <= $${paramIndex}`);
+            params.push(filter.endDate);
+            paramIndex++;
+        }
+        return {
+            whereClause: `WHERE ${conditions.join(" AND ")}`,
+            params,
+        };
+    }
+    /**
+     * Build SQL UPDATE data for transaction updates
+     *
+     * @param transactionData - Partial transaction data
+     * @returns SQL update fields and parameters
+     */
+    buildSQLUpdateData(transactionData) {
+        const updateFields = [];
+        const params = [];
+        let paramIndex = 1;
+        // Only include fields that are explicitly provided
+        if (transactionData.type !== undefined) {
+            updateFields.push(`type = $${paramIndex}`);
+            params.push(transactionData.type);
+            paramIndex++;
+        }
+        if (transactionData.amount !== undefined) {
+            updateFields.push(`amount = $${paramIndex}`);
+            params.push(transactionData.amount);
+            paramIndex++;
+        }
+        if (transactionData.description !== undefined) {
+            updateFields.push(`description = $${paramIndex}`);
+            params.push(transactionData.description);
+            paramIndex++;
+        }
+        if (transactionData.date !== undefined) {
+            updateFields.push(`date = $${paramIndex}`);
+            params.push(transactionData.date);
+            paramIndex++;
+        }
+        return { updateFields, params };
+    }
+    /**
+     * Check if error is a database constraint violation
+     *
+     * @param error - Error object to check
+     * @returns true if it's a constraint error
+     */
+    isDatabaseConstraintError(error) {
+        return (error instanceof Error &&
+            (error.message.includes("constraint") ||
+                error.message.includes("foreign key") ||
+                error.message.includes("unique") ||
+                error.message.includes("violates") ||
+                error.code === "23503" || // Foreign key violation
+                error.code === "23505" || // Unique violation
+                error.code === "23514") // Check constraint violation
+        );
     }
 }
 exports.TransactionRepository = TransactionRepository;

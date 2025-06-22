@@ -1,5 +1,5 @@
 import { ValidationUtils } from "../../utils/validation";
-import { TransactionType } from "@prisma/client";
+import { TransactionType } from "../../types";
 
 describe("ValidationUtils", () => {
   describe("validateTransactionInput", () => {

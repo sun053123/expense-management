@@ -8,9 +8,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 // Mock Prisma Client for tests
-jest.mock('@prisma/client', () => ({
+jest.mock("@prisma/client", () => ({
     PrismaClient: jest.fn().mockImplementation(() => ({
         user: {
             findUnique: jest.fn(),
@@ -34,7 +33,7 @@ jest.mock('@prisma/client', () => ({
     })),
 }));
 // Mock logger to avoid console output during tests
-jest.mock('../utils/logger', () => ({
+jest.mock("../utils/logger", () => ({
     info: jest.fn(),
     error: jest.fn(),
     warn: jest.fn(),
@@ -42,9 +41,9 @@ jest.mock('../utils/logger', () => ({
     http: jest.fn(),
 }));
 // Set test environment variables
-process.env.NODE_ENV = 'test';
-process.env.JWT_SECRET = 'test-jwt-secret';
-process.env.DATABASE_URL = 'postgresql://test:test@localhost:5432/test_db';
+process.env.NODE_ENV = "test";
+process.env.JWT_SECRET = "test-jwt-secret";
+process.env.DATABASE_URL = "postgresql://test:test@localhost:5432/test_db";
 // Global test setup
 beforeAll(() => __awaiter(void 0, void 0, void 0, function* () {
     // Any global setup can go here
@@ -59,4 +58,10 @@ beforeEach(() => {
 afterEach(() => {
     // Clean up after each test
     jest.restoreAllMocks();
+});
+// Add a dummy test to prevent Jest from complaining
+describe("Setup", () => {
+    it("should setup test environment", () => {
+        expect(process.env.NODE_ENV).toBe("test");
+    });
 });

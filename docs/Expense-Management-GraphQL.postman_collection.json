@@ -1,0 +1,467 @@
+{
+  "info": {
+    "name": "Expense Management GraphQL API",
+    "description": "Complete GraphQL API collection for the Expense Management System with authentication and transaction management",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_id": "expense-mgmt-graphql-api",
+    "version": "1.0.0"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{jwtToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// Set base URL if not already set",
+          "if (!pm.environment.get('baseUrl')) {",
+          "  pm.environment.set('baseUrl', 'http://localhost:8888');",
+          "}"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8888",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"mutation RegisterUser($input: RegisterInput!) { register(input: $input) { token user { id email createdAt updatedAt } } }\",\n  \"variables\": {\n    \"input\": {\n      \"email\": \"user@example.com\",\n      \"password\": \"securePassword123\"\n    }\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/graphql",
+              "host": ["{{baseUrl}}"],
+              "path": ["graphql"]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// Save JWT token to environment",
+                  "if (pm.response.json().data && pm.response.json().data.register) {",
+                  "  pm.environment.set('jwtToken', pm.response.json().data.register.token);",
+                  "  console.log('JWT Token saved to environment');",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Login User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"mutation LoginUser($input: LoginInput!) { login(input: $input) { token user { id email createdAt updatedAt } } }\",\n  \"variables\": {\n    \"input\": {\n      \"email\": \"user@example.com\",\n      \"password\": \"securePassword123\"\n    }\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/graphql",
+              "host": ["{{baseUrl}}"],
+              "path": ["graphql"]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// Save JWT token to environment",
+                  "if (pm.response.json().data && pm.response.json().data.login) {",
+                  "  pm.environment.set('jwtToken', pm.response.json().data.login.token);",
+                  "  console.log('JWT Token saved to environment');",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get Current User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwtToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"query GetMe { me { id email createdAt updatedAt } }\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/graphql",
+              "host": ["{{baseUrl}}"],
+              "path": ["graphql"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Transaction Queries",
+      "item": [
+        {
+          "name": "Get All Transactions",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwtToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"query GetTransactions($filter: TransactionFilter) { transactions(filter: $filter) { id userId type amount description date createdAt updatedAt user { id email } } }\",\n  \"variables\": {\n    \"filter\": {}\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/graphql",
+              "host": ["{{baseUrl}}"],
+              "path": ["graphql"]
+            }
+          }
+        },
+        {
+          "name": "Get Transactions with Filter",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwtToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"query GetTransactions($filter: TransactionFilter) { transactions(filter: $filter) { id userId type amount description date createdAt updatedAt } }\",\n  \"variables\": {\n    \"filter\": {\n      \"type\": \"EXPENSE\",\n      \"startDate\": \"2024-01-01\",\n      \"endDate\": \"2024-12-31\"\n    }\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/graphql",
+              "host": ["{{baseUrl}}"],
+              "path": ["graphql"]
+            }
+          }
+        },
+        {
+          "name": "Get Single Transaction",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwtToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"query GetTransaction($id: ID!) { transaction(id: $id) { id userId type amount description date createdAt updatedAt user { id email } } }\",\n  \"variables\": {\n    \"id\": \"1\"\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/graphql",
+              "host": ["{{baseUrl}}"],
+              "path": ["graphql"]
+            }
+          }
+        },
+        {
+          "name": "Get Financial Summary",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwtToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"query GetSummary { summary { totalIncome totalExpense balance transactionCount } }\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/graphql",
+              "host": ["{{baseUrl}}"],
+              "path": ["graphql"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Transaction Mutations",
+      "item": [
+        {
+          "name": "Add Expense Transaction",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwtToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"mutation AddTransaction($input: TransactionInput!) { addTransaction(input: $input) { id userId type amount description date createdAt updatedAt } }\",\n  \"variables\": {\n    \"input\": {\n      \"type\": \"EXPENSE\",\n      \"amount\": 25.50,\n      \"description\": \"Coffee and snacks\",\n      \"date\": \"2024-01-15\"\n    }\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/graphql",
+              "host": ["{{baseUrl}}"],
+              "path": ["graphql"]
+            }
+          }
+        },
+        {
+          "name": "Add Income Transaction",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwtToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"mutation AddTransaction($input: TransactionInput!) { addTransaction(input: $input) { id userId type amount description date createdAt updatedAt } }\",\n  \"variables\": {\n    \"input\": {\n      \"type\": \"INCOME\",\n      \"amount\": 2500.00,\n      \"description\": \"Monthly salary\",\n      \"date\": \"2024-01-01\"\n    }\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/graphql",
+              "host": ["{{baseUrl}}"],
+              "path": ["graphql"]
+            }
+          }
+        },
+        {
+          "name": "Update Transaction",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwtToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"mutation UpdateTransaction($id: ID!, $input: TransactionUpdateInput!) { updateTransaction(id: $id, input: $input) { id userId type amount description date createdAt updatedAt } }\",\n  \"variables\": {\n    \"id\": \"1\",\n    \"input\": {\n      \"amount\": 30.00,\n      \"description\": \"Updated: Coffee and lunch\"\n    }\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/graphql",
+              "host": ["{{baseUrl}}"],
+              "path": ["graphql"]
+            }
+          }
+        },
+        {
+          "name": "Delete Transaction",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwtToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"mutation DeleteTransaction($id: ID!) { deleteTransaction(id: $id) }\",\n  \"variables\": {\n    \"id\": \"1\"\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/graphql",
+              "host": ["{{baseUrl}}"],
+              "path": ["graphql"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Utilities",
+      "item": [
+        {
+          "name": "Health Check (GraphQL)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"query HealthCheck { health }\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/graphql",
+              "host": ["{{baseUrl}}"],
+              "path": ["graphql"]
+            }
+          }
+        },
+        {
+          "name": "Health Check (REST)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["health"]
+            }
+          }
+        },
+        {
+          "name": "GraphQL Schema Introspection",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"query IntrospectionQuery { __schema { types { name kind description fields { name type { name kind } } } } }\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/graphql",
+              "host": ["{{baseUrl}}"],
+              "path": ["graphql"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
