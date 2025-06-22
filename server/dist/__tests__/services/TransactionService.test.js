@@ -14,25 +14,26 @@ const TransactionRepository_1 = require("../../repositories/TransactionRepositor
 // Mock the repository
 jest.mock("../../repositories/TransactionRepository");
 jest.mock("../../utils/logger");
-const MockedTransactionRepository = TransactionRepository_1.TransactionRepository;
-/**
- * Test suite for TransactionService
- *
- * This test suite covers all business logic in the refactored TransactionService,
- * ensuring proper validation, error handling, and service layer functionality.
- * Tests are organized by method and cover both success and failure scenarios.
- */
+const MockedTransactionRepository = jest.mocked(TransactionRepository_1.TransactionRepository);
 describe("TransactionService", () => {
     let transactionService;
     let mockRepository;
     beforeEach(() => {
         // Clear all mocks before each test
         jest.clearAllMocks();
+        // Create mock repository methods
+        mockRepository = {
+            findById: jest.fn(),
+            findByUserId: jest.fn(),
+            create: jest.fn(),
+            update: jest.fn(),
+            delete: jest.fn(),
+            getSummary: jest.fn(),
+        };
+        // Mock the TransactionRepository constructor to return our mock
+        MockedTransactionRepository.mockImplementation(() => mockRepository);
         // Create a new service instance
         transactionService = new TransactionService_1.TransactionService();
-        // Get the mocked repository instance
-        mockRepository = MockedTransactionRepository.mock
-            .instances[0];
     });
     describe("getTransactions", () => {
         const userId = 1;

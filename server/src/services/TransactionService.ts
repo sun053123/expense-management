@@ -275,7 +275,16 @@ export class TransactionService implements ITransactionService {
         };
       }
 
-      // Step 2: Retrieve and verify transaction ownership
+      // Step 2: Validate update input early
+      const updateValidation = this.validateTransactionUpdate(input);
+      if (!updateValidation.success) {
+        return {
+          success: false,
+          error: updateValidation.error,
+        };
+      }
+
+      // Step 3: Retrieve and verify transaction ownership
       const existingTransaction = await this.transactionRepository.findById(id);
       if (!existingTransaction) {
         logger.warn(`Transaction ${id} not found for update`);
@@ -293,15 +302,6 @@ export class TransactionService implements ITransactionService {
         return {
           success: false,
           error: ownershipValidation.error,
-        };
-      }
-
-      // Step 3: Validate update input
-      const updateValidation = this.validateTransactionUpdate(input);
-      if (!updateValidation.success) {
-        return {
-          success: false,
-          error: updateValidation.error,
         };
       }
 

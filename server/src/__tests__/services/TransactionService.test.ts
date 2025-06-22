@@ -10,9 +10,7 @@ import {
 jest.mock("../../repositories/TransactionRepository");
 jest.mock("../../utils/logger");
 
-const MockedTransactionRepository = TransactionRepository as jest.MockedClass<
-  typeof TransactionRepository
->;
+const MockedTransactionRepository = jest.mocked(TransactionRepository);
 
 /**
  * Test suite for TransactionService
@@ -21,20 +19,39 @@ const MockedTransactionRepository = TransactionRepository as jest.MockedClass<
  * ensuring proper validation, error handling, and service layer functionality.
  * Tests are organized by method and cover both success and failure scenarios.
  */
+// Define interface for mocked repository methods
+interface MockedRepositoryMethods {
+  findById: jest.Mock;
+  findByUserId: jest.Mock;
+  create: jest.Mock;
+  update: jest.Mock;
+  delete: jest.Mock;
+  getSummary: jest.Mock;
+}
+
 describe("TransactionService", () => {
   let transactionService: TransactionService;
-  let mockRepository: jest.Mocked<TransactionRepository>;
+  let mockRepository: MockedRepositoryMethods;
 
   beforeEach(() => {
     // Clear all mocks before each test
     jest.clearAllMocks();
 
+    // Create mock repository methods
+    mockRepository = {
+      findById: jest.fn(),
+      findByUserId: jest.fn(),
+      create: jest.fn(),
+      update: jest.fn(),
+      delete: jest.fn(),
+      getSummary: jest.fn(),
+    };
+
+    // Mock the TransactionRepository constructor to return our mock
+    MockedTransactionRepository.mockImplementation(() => mockRepository as any);
+
     // Create a new service instance
     transactionService = new TransactionService();
-
-    // Get the mocked repository instance
-    mockRepository = MockedTransactionRepository.mock
-      .instances[0] as jest.Mocked<TransactionRepository>;
   });
 
   describe("getTransactions", () => {

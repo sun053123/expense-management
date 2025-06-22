@@ -203,7 +203,7 @@ class AuthUtils {
         try {
             const validation = auth_schemas_1.AuthValidation.validateLogin({
                 email,
-                password: "temp",
+                password: "temppass", // Use valid password length for login schema (6+ chars)
             });
             return validation.success;
         }

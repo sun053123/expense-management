@@ -8,28 +8,35 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-// Mock Prisma Client for tests
-jest.mock("@prisma/client", () => ({
-    PrismaClient: jest.fn().mockImplementation(() => ({
-        user: {
-            findUnique: jest.fn(),
-            findMany: jest.fn(),
-            create: jest.fn(),
-            update: jest.fn(),
-            delete: jest.fn(),
-        },
-        transaction: {
-            findUnique: jest.fn(),
-            findMany: jest.fn(),
-            create: jest.fn(),
-            update: jest.fn(),
-            delete: jest.fn(),
-            aggregate: jest.fn(),
-            count: jest.fn(),
-        },
-        $connect: jest.fn(),
-        $disconnect: jest.fn(),
-        $queryRaw: jest.fn(),
+// Mock PostgreSQL database module for tests
+jest.mock("../database/postgres", () => ({
+    __esModule: true,
+    default: {
+        query: jest.fn(),
+        queryOne: jest.fn(),
+        getClient: jest.fn(),
+        transaction: jest.fn(),
+        end: jest.fn(),
+    },
+    DatabaseHelpers: {
+        buildWhereClause: jest.fn(),
+        buildUpdateClause: jest.fn(),
+        formatError: jest.fn(),
+    },
+}));
+// Mock pg module to prevent import errors
+jest.mock("pg", () => ({
+    Pool: jest.fn().mockImplementation(() => ({
+        connect: jest.fn(),
+        query: jest.fn(),
+        end: jest.fn(),
+        on: jest.fn(),
+    })),
+    Client: jest.fn().mockImplementation(() => ({
+        connect: jest.fn(),
+        query: jest.fn(),
+        end: jest.fn(),
+        on: jest.fn(),
     })),
 }));
 // Mock logger to avoid console output during tests

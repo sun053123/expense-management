@@ -237,7 +237,15 @@ class TransactionService {
                         error: userIdValidation.error,
                     };
                 }
-                // Step 2: Retrieve and verify transaction ownership
+                // Step 2: Validate update input early
+                const updateValidation = this.validateTransactionUpdate(input);
+                if (!updateValidation.success) {
+                    return {
+                        success: false,
+                        error: updateValidation.error,
+                    };
+                }
+                // Step 3: Retrieve and verify transaction ownership
                 const existingTransaction = yield this.transactionRepository.findById(id);
                 if (!existingTransaction) {
                     logger_1.default.warn(`Transaction ${id} not found for update`);
@@ -251,14 +259,6 @@ class TransactionService {
                     return {
                         success: false,
                         error: ownershipValidation.error,
-                    };
-                }
-                // Step 3: Validate update input
-                const updateValidation = this.validateTransactionUpdate(input);
-                if (!updateValidation.success) {
-                    return {
-                        success: false,
-                        error: updateValidation.error,
                     };
                 }
                 // Step 4: Process update data
