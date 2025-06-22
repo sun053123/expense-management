@@ -1,3 +1,32 @@
+/**
+ * TransactionValidation Test Suite (Zod Schema-Based)
+ *
+ * This comprehensive test suite validates the modern Zod-based validation system
+ * for transaction operations. Zod provides type-safe, runtime validation with
+ * excellent TypeScript integration and detailed error reporting.
+ *
+ * TESTING STRATEGY:
+ * - Test schema validation for all transaction operations (create, update, filter)
+ * - Validate comprehensive input scenarios and edge cases
+ * - Test error message formatting and user experience
+ * - Ensure type safety and runtime validation alignment
+ * - Test performance with various input sizes and types
+ *
+ * LEARNING OBJECTIVES FOR JUNIOR DEVELOPERS:
+ * - Understanding modern schema-based validation patterns
+ * - Learning Zod library usage and benefits
+ * - Grasping type-safe validation techniques
+ * - Recognizing validation error handling best practices
+ * - Understanding the evolution from manual to schema validation
+ *
+ * ZOD BENEFITS OVER MANUAL VALIDATION:
+ * - Type safety: Validation schemas match TypeScript types
+ * - Composability: Schemas can be combined and reused
+ * - Better error messages: Detailed, path-specific error reporting
+ * - Maintainability: Single source of truth for validation rules
+ * - Performance: Optimized validation with early returns
+ */
+
 import { TransactionValidation } from "../../validation/transaction.schemas";
 
 /**
@@ -8,8 +37,30 @@ import { TransactionValidation } from "../../validation/transaction.schemas";
  * error handling for transaction operations.
  */
 describe("TransactionValidation", () => {
+  /**
+   * TRANSACTION INPUT VALIDATION TESTS
+   *
+   * These tests validate the core transaction creation schema, which is
+   * the most critical validation in the application. Every new transaction
+   * must pass this validation to ensure data integrity.
+   *
+   * SCHEMA VALIDATION AREAS:
+   * - Type validation with literal types for transaction types
+   * - Numeric validation with precision and range constraints
+   * - Date validation with format and range checking
+   * - String validation with length limits and sanitization
+   * - Optional field handling and default values
+   */
   describe("validateTransactionInput", () => {
+    /**
+     * TEST CASE: Valid Transaction Input (Happy Path)
+     *
+     * This test validates that properly formatted transaction data
+     * passes Zod schema validation and returns the expected structure.
+     * This represents the most common successful use case.
+     */
     it("should validate correct transaction input", () => {
+      // ARRANGE: Create valid transaction input matching schema
       const input = {
         type: "EXPENSE" as const,
         amount: 100.5,
@@ -17,34 +68,63 @@ describe("TransactionValidation", () => {
         date: "2023-12-01",
       };
 
+      // ACT: Validate using Zod schema
       const result = TransactionValidation.validateTransactionInput(input);
+
+      // ASSERT: Verify successful validation
       expect(result.success).toBe(true);
       expect(result.data).toEqual(input);
+      // Zod returns the parsed data, which may include transformations
     });
 
+    /**
+     * TEST CASE: Optional Description Field
+     *
+     * This test validates that the description field is properly handled
+     * as optional in the Zod schema. This demonstrates schema flexibility
+     * and proper handling of undefined values.
+     */
     it("should validate transaction without description", () => {
+      // ARRANGE: Create input without optional description field
       const input = {
         type: "INCOME" as const,
         amount: 250.75,
         date: "2023-12-01",
+        // description is intentionally omitted
       };
 
+      // ACT: Validate using Zod schema
       const result = TransactionValidation.validateTransactionInput(input);
+
+      // ASSERT: Verify successful validation with undefined description
       expect(result.success).toBe(true);
       expect(result.data?.description).toBeUndefined();
+      // Zod properly handles optional fields
     });
 
+    /**
+     * TEST CASE: Invalid Transaction Type (Literal Type Validation)
+     *
+     * This test demonstrates Zod's literal type validation, which ensures
+     * only specific string values are accepted. This is more type-safe
+     * than traditional string validation.
+     */
     it("should reject invalid transaction type", () => {
+      // ARRANGE: Create input with invalid transaction type
       const input = {
-        type: "INVALID" as any,
+        type: "INVALID" as any, // Not in literal union "INCOME" | "EXPENSE"
         amount: 100.5,
         description: "Test transaction",
         date: "2023-12-01",
       };
 
+      // ACT: Validate using Zod schema
       const result = TransactionValidation.validateTransactionInput(input);
+
+      // ASSERT: Verify validation fails with type error
       expect(result.success).toBe(false);
 
+      // Format Zod errors for user-friendly messages
       const errors = TransactionValidation.formatValidationErrors(
         result.error!
       );
@@ -55,17 +135,29 @@ describe("TransactionValidation", () => {
       ).toBe(true);
     });
 
+    /**
+     * TEST CASE: Negative Amount Validation (Numeric Constraints)
+     *
+     * This test validates Zod's numeric constraint validation, ensuring
+     * amounts are positive. Zod provides built-in numeric validators
+     * that are more robust than manual checks.
+     */
     it("should reject negative amount", () => {
+      // ARRANGE: Create input with negative amount
       const input = {
         type: "EXPENSE" as const,
-        amount: -100,
+        amount: -100, // Violates positive constraint
         description: "Test transaction",
         date: "2023-12-01",
       };
 
+      // ACT: Validate using Zod schema
       const result = TransactionValidation.validateTransactionInput(input);
+
+      // ASSERT: Verify validation fails with amount error
       expect(result.success).toBe(false);
 
+      // Check formatted error messages
       const errors = TransactionValidation.formatValidationErrors(
         result.error!
       );
