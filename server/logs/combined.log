@@ -817,3 +817,535 @@
 {"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mApollo server stopped\u001b[39m","timestamp":"2025-06-22 10:49:15:4915"}
 {"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Database connections closed successfully\u001b[39m","timestamp":"2025-06-22 10:49:15:4915"}
 {"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Database disconnected successfully\u001b[39m","timestamp":"2025-06-22 10:49:15:4915"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mNew database connection established\u001b[39m","timestamp":"2025-06-22 14:45:52:4552"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:45:52:4552"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 64ms:\u001b[39m","query":"SELECT 1 as test","rowCount":1,"timestamp":"2025-06-22 14:45:52:4552"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ PostgreSQL database connected successfully\u001b[39m","timestamp":"2025-06-22 14:45:52:4552"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Database connected successfully (both Prisma and PostgreSQL)\u001b[39m","timestamp":"2025-06-22 14:45:52:4552"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server ready at http://localhost:8888/graphql\u001b[39m","timestamp":"2025-06-22 14:45:52:4552"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📊 Health check available at http://localhost:8888/health\u001b[39m","timestamp":"2025-06-22 14:45:52:4552"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-22 14:45:52:4552"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST /graphql - ::1\u001b[39m","timestamp":"2025-06-22 14:45:56:4556"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mNo authorization header provided\u001b[39m","timestamp":"2025-06-22 14:45:56:4556"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mGraphQL login attempt for email: asd@asd.com\u001b[39m","timestamp":"2025-06-22 14:45:56:4556"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mLogin attempt for email: asd@asd.com\u001b[39m","timestamp":"2025-06-22 14:45:56:4556"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding user by email: asd@asd.com\u001b[39m","timestamp":"2025-06-22 14:45:56:4556"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:45:56:4556"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 20ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT id, email, password, created_at as \"createdAt\", updated_at as \"updatedAt\"\n        FROM users\n        WHERE email = $1\n      ","rowCount":0,"timestamp":"2025-06-22 14:45:56:4556"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mNo user found with email: asd@asd.com\u001b[39m","timestamp":"2025-06-22 14:45:56:4556"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mLogin attempt with non-existent email: asd@asd.com\u001b[39m","timestamp":"2025-06-22 14:45:56:4556"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mGraphQL login failed for email: asd@asd.com - Invalid email or password\u001b[39m","timestamp":"2025-06-22 14:45:56:4556"}
+{"extensions":{"code":"UNAUTHENTICATED"},"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mGraphQL login resolver error: Invalid email or password\u001b[39m","stack":"AuthenticationError: Invalid email or password\n    at /Users/phupasirikomonsing/workspace/express-project/expense-management/server/src/graphql/resolvers/authResolvers.ts:94:17\n    at Generator.next (<anonymous>)\n    at fulfilled (/Users/phupasirikomonsing/workspace/express-project/expense-management/server/src/graphql/resolvers/authResolvers.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2025-06-22 14:45:56:4556"}
+{"extensions":{"code":"UNAUTHENTICATED","exception":{"stacktrace":["AuthenticationError: Invalid email or password","    at /Users/phupasirikomonsing/workspace/express-project/expense-management/server/src/graphql/resolvers/authResolvers.ts:94:17","    at Generator.next (<anonymous>)","    at fulfilled (/Users/phupasirikomonsing/workspace/express-project/expense-management/server/src/graphql/resolvers/authResolvers.ts:5:58)","    at processTicksAndRejections (node:internal/process/task_queues:105:5)"]}},"level":"\u001b[31merror\u001b[39m","locations":[{"column":3,"line":2}],"message":"\u001b[31mGraphQL Error: Invalid email or password\u001b[39m","path":["login"],"timestamp":"2025-06-22 14:45:56:4556"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST / - 200 - 50ms\u001b[39m","timestamp":"2025-06-22 14:45:56:4556"}
+{"duration":49,"ip":"::1","level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRequest metrics:\u001b[39m","method":"POST","statusCode":200,"timestamp":"2025-06-22 14:45:56:4556","url":"/","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST /graphql - ::1\u001b[39m","timestamp":"2025-06-22 14:46:04:464"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mNo authorization header provided\u001b[39m","timestamp":"2025-06-22 14:46:04:464"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mGraphQL login attempt for email: a12312312313sd@gmail.com\u001b[39m","timestamp":"2025-06-22 14:46:04:464"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mLogin attempt for email: a12312312313sd@gmail.com\u001b[39m","timestamp":"2025-06-22 14:46:04:464"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding user by email: a12312312313sd@gmail.com\u001b[39m","timestamp":"2025-06-22 14:46:04:464"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:46:04:464"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 10ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT id, email, password, created_at as \"createdAt\", updated_at as \"updatedAt\"\n        FROM users\n        WHERE email = $1\n      ","rowCount":0,"timestamp":"2025-06-22 14:46:04:464"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mNo user found with email: a12312312313sd@gmail.com\u001b[39m","timestamp":"2025-06-22 14:46:04:464"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mLogin attempt with non-existent email: a12312312313sd@gmail.com\u001b[39m","timestamp":"2025-06-22 14:46:04:464"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mGraphQL login failed for email: a12312312313sd@gmail.com - Invalid email or password\u001b[39m","timestamp":"2025-06-22 14:46:04:464"}
+{"extensions":{"code":"UNAUTHENTICATED"},"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mGraphQL login resolver error: Invalid email or password\u001b[39m","stack":"AuthenticationError: Invalid email or password\n    at /Users/phupasirikomonsing/workspace/express-project/expense-management/server/src/graphql/resolvers/authResolvers.ts:94:17\n    at Generator.next (<anonymous>)\n    at fulfilled (/Users/phupasirikomonsing/workspace/express-project/expense-management/server/src/graphql/resolvers/authResolvers.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2025-06-22 14:46:04:464"}
+{"extensions":{"code":"UNAUTHENTICATED","exception":{"stacktrace":["AuthenticationError: Invalid email or password","    at /Users/phupasirikomonsing/workspace/express-project/expense-management/server/src/graphql/resolvers/authResolvers.ts:94:17","    at Generator.next (<anonymous>)","    at fulfilled (/Users/phupasirikomonsing/workspace/express-project/expense-management/server/src/graphql/resolvers/authResolvers.ts:5:58)","    at processTicksAndRejections (node:internal/process/task_queues:105:5)"]}},"level":"\u001b[31merror\u001b[39m","locations":[{"column":3,"line":2}],"message":"\u001b[31mGraphQL Error: Invalid email or password\u001b[39m","path":["login"],"timestamp":"2025-06-22 14:46:04:464"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST / - 200 - 16ms\u001b[39m","timestamp":"2025-06-22 14:46:04:464"}
+{"duration":15,"ip":"::1","level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRequest metrics:\u001b[39m","method":"POST","statusCode":200,"timestamp":"2025-06-22 14:46:04:464","url":"/","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST /graphql - ::1\u001b[39m","timestamp":"2025-06-22 14:46:22:4622"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mNo authorization header provided\u001b[39m","timestamp":"2025-06-22 14:46:22:4622"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mGraphQL registration attempt for email: a12312312313sd@gmail.com\u001b[39m","timestamp":"2025-06-22 14:46:22:4622"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mGraphQL registration validation failed: password: Password must contain at least one lowercase letter, one uppercase letter, and one number\u001b[39m","timestamp":"2025-06-22 14:46:22:4622"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mGraphQL register resolver error: password: Password must contain at least one lowercase letter, one uppercase letter, and one number\u001b[39m","stack":"Error: password: Password must contain at least one lowercase letter, one uppercase letter, and one number\n    at /Users/phupasirikomonsing/workspace/express-project/expense-management/server/src/graphql/resolvers/authResolvers.ts:136:17\n    at Generator.next (<anonymous>)\n    at /Users/phupasirikomonsing/workspace/express-project/expense-management/server/src/graphql/resolvers/authResolvers.ts:8:71\n    at new Promise (<anonymous>)\n    at __awaiter (/Users/phupasirikomonsing/workspace/express-project/expense-management/server/src/graphql/resolvers/authResolvers.ts:4:12)\n    at Object.register (/Users/phupasirikomonsing/workspace/express-project/expense-management/server/src/graphql/resolvers/authResolvers.ts:121:69)\n    at field.resolve (/Users/phupasirikomonsing/workspace/express-project/expense-management/server/node_modules/apollo-server-core/src/utils/schemaInstrumentation.ts:106:18)\n    at executeField (/Users/phupasirikomonsing/workspace/express-project/expense-management/server/node_modules/graphql/execution/execute.js:500:20)\n    at /Users/phupasirikomonsing/workspace/express-project/expense-management/server/node_modules/graphql/execution/execute.js:385:22\n    at promiseReduce (/Users/phupasirikomonsing/workspace/express-project/expense-management/server/node_modules/graphql/jsutils/promiseReduce.js:23:9)","timestamp":"2025-06-22 14:46:22:4622"}
+{"extensions":{"code":"INTERNAL_SERVER_ERROR","exception":{"stacktrace":["Error: password: Password must contain at least one lowercase letter, one uppercase letter, and one number","    at /Users/phupasirikomonsing/workspace/express-project/expense-management/server/src/graphql/resolvers/authResolvers.ts:136:17","    at Generator.next (<anonymous>)","    at /Users/phupasirikomonsing/workspace/express-project/expense-management/server/src/graphql/resolvers/authResolvers.ts:8:71","    at new Promise (<anonymous>)","    at __awaiter (/Users/phupasirikomonsing/workspace/express-project/expense-management/server/src/graphql/resolvers/authResolvers.ts:4:12)","    at Object.register (/Users/phupasirikomonsing/workspace/express-project/expense-management/server/src/graphql/resolvers/authResolvers.ts:121:69)","    at field.resolve (/Users/phupasirikomonsing/workspace/express-project/expense-management/server/node_modules/apollo-server-core/src/utils/schemaInstrumentation.ts:106:18)","    at executeField (/Users/phupasirikomonsing/workspace/express-project/expense-management/server/node_modules/graphql/execution/execute.js:500:20)","    at /Users/phupasirikomonsing/workspace/express-project/expense-management/server/node_modules/graphql/execution/execute.js:385:22","    at promiseReduce (/Users/phupasirikomonsing/workspace/express-project/expense-management/server/node_modules/graphql/jsutils/promiseReduce.js:23:9)"]}},"level":"\u001b[31merror\u001b[39m","locations":[{"column":3,"line":2}],"message":"\u001b[31mGraphQL Error: password: Password must contain at least one lowercase letter, one uppercase letter, and one number\u001b[39m","path":["register"],"timestamp":"2025-06-22 14:46:22:4622"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST / - 200 - 194ms\u001b[39m","timestamp":"2025-06-22 14:46:22:4622"}
+{"duration":194,"ip":"::1","level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRequest metrics:\u001b[39m","method":"POST","statusCode":200,"timestamp":"2025-06-22 14:46:22:4622","url":"/","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST /graphql - ::1\u001b[39m","timestamp":"2025-06-22 14:46:33:4633"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mNo authorization header provided\u001b[39m","timestamp":"2025-06-22 14:46:33:4633"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mGraphQL registration attempt for email: a12312312313sd@gmail.com\u001b[39m","timestamp":"2025-06-22 14:46:33:4633"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRegistration attempt for email: a12312312313sd@gmail.com\u001b[39m","timestamp":"2025-06-22 14:46:33:4633"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding user by email: a12312312313sd@gmail.com\u001b[39m","timestamp":"2025-06-22 14:46:33:4633"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:46:33:4633"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 6ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT id, email, password, created_at as \"createdAt\", updated_at as \"updatedAt\"\n        FROM users\n        WHERE email = $1\n      ","rowCount":0,"timestamp":"2025-06-22 14:46:33:4633"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mNo user found with email: a12312312313sd@gmail.com\u001b[39m","timestamp":"2025-06-22 14:46:33:4633"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mPassword hashed successfully\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mCreating new user with email: a12312312313sd@gmail.com\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 13ms:\u001b[39m","params":"[REDACTED]","query":"\n        INSERT INTO users (email, password, created_at, updated_at)\n        VALUES ($1, $2, NOW(), NOW())\n        RETURNING id, email, password, created_at as \"createdAt\", updated_at as \"updatedAt\"\n      ","rowCount":1,"timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mUser created successfully with ID: 11 and email: a12312312313sd@gmail.com\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mJWT token generated for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mUser a12312312313sd@gmail.com registered successfully\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mGraphQL registration successful for email: a12312312313sd@gmail.com\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST / - 200 - 369ms\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"duration":370,"ip":"::1","level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRequest metrics:\u001b[39m","method":"POST","statusCode":200,"timestamp":"2025-06-22 14:46:34:4634","url":"/","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST /graphql - ::1\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken extracted successfully from authorization header\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verification attempt\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding user by ID: 11\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 15ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT id, email, password, created_at as \"createdAt\", updated_at as \"updatedAt\"\n        FROM users\n        WHERE id = $1\n      ","rowCount":1,"timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mUser found with ID: 11\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mUser 11 accessed me query\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST / - 200 - 20ms\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"duration":20,"ip":"::1","level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRequest metrics:\u001b[39m","method":"POST","statusCode":200,"timestamp":"2025-06-22 14:46:34:4634","url":"/","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST /graphql - ::1\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken extracted successfully from authorization header\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verification attempt\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding user by ID: 11\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST /graphql - ::1\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken extracted successfully from authorization header\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verification attempt\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding user by ID: 11\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 3ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT id, email, password, created_at as \"createdAt\", updated_at as \"updatedAt\"\n        FROM users\n        WHERE id = $1\n      ","rowCount":1,"timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mUser found with ID: 11\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mGraphQL summary query for user 11\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRetrieving summary for user 11\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mCalculating summary for user 11\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST /graphql - ::1\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken extracted successfully from authorization header\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verification attempt\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding user by ID: 11\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 21ms:\u001b[39m","params":"[REDACTED]","query":"SELECT SUM(amount) as total FROM transactions WHERE user_id = $1 AND type = $2","rowCount":1,"timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mNew database connection established\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mNew database connection established\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mNew database connection established\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mNew database connection established\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 27ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT id, email, password, created_at as \"createdAt\", updated_at as \"updatedAt\"\n        FROM users\n        WHERE id = $1\n      ","rowCount":1,"timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mUser found with ID: 11\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mGraphQL transactions query for user 11\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRetrieving transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding transactions for user 11 with filter:\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 41ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT id, email, password, created_at as \"createdAt\", updated_at as \"updatedAt\"\n        FROM users\n        WHERE id = $1\n      ","rowCount":1,"timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mUser found with ID: 11\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mGraphQL transactions query for user 11\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRetrieving transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding transactions for user 11 with filter:\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 37ms:\u001b[39m","params":"[REDACTED]","query":"SELECT COUNT(*) as count FROM transactions WHERE user_id = $1","rowCount":1,"timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 38ms:\u001b[39m","params":"[REDACTED]","query":"SELECT SUM(amount) as total FROM transactions WHERE user_id = $1 AND type = $2","rowCount":1,"timestamp":"2025-06-22 14:46:34:4634"}
+{"balance":0,"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mSummary calculated for user 11:\u001b[39m","timestamp":"2025-06-22 14:46:34:4634","totalExpense":0,"totalIncome":0,"transactionCount":0}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mSummary retrieved successfully for user 11\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mSuccessfully retrieved summary for user 11\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST / - 200 - 49ms\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"duration":49,"ip":"::1","level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRequest metrics:\u001b[39m","method":"POST","statusCode":200,"timestamp":"2025-06-22 14:46:34:4634","url":"/","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 5ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT\n          id,\n          user_id as \"userId\",\n          type,\n          amount,\n          description,\n          date,\n          created_at as \"createdAt\",\n          updated_at as \"updatedAt\"\n        FROM transactions\n        WHERE user_id = $1\n        ORDER BY date DESC\n      ","rowCount":0,"timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFound 0 transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mRetrieved 0 transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mRetrieved 0 transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST / - 200 - 50ms\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"duration":50,"ip":"::1","level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRequest metrics:\u001b[39m","method":"POST","statusCode":200,"timestamp":"2025-06-22 14:46:34:4634","url":"/","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 8ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT\n          id,\n          user_id as \"userId\",\n          type,\n          amount,\n          description,\n          date,\n          created_at as \"createdAt\",\n          updated_at as \"updatedAt\"\n        FROM transactions\n        WHERE user_id = $1\n        ORDER BY date DESC\n      ","rowCount":0,"timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFound 0 transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mRetrieved 0 transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mRetrieved 0 transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST / - 200 - 42ms\u001b[39m","timestamp":"2025-06-22 14:46:34:4634"}
+{"duration":43,"ip":"::1","level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRequest metrics:\u001b[39m","method":"POST","statusCode":200,"timestamp":"2025-06-22 14:46:34:4634","url":"/","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST /graphql - ::1\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken extracted successfully from authorization header\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verification attempt\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding user by ID: 11\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 15ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT id, email, password, created_at as \"createdAt\", updated_at as \"updatedAt\"\n        FROM users\n        WHERE id = $1\n      ","rowCount":1,"timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mUser found with ID: 11\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mUser 11 accessed me query\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST / - 200 - 25ms\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"duration":25,"ip":"::1","level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRequest metrics:\u001b[39m","method":"POST","statusCode":200,"timestamp":"2025-06-22 14:46:50:4650","url":"/","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST /graphql - ::1\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken extracted successfully from authorization header\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verification attempt\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding user by ID: 11\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST /graphql - ::1\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken extracted successfully from authorization header\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verification attempt\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding user by ID: 11\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 9ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT id, email, password, created_at as \"createdAt\", updated_at as \"updatedAt\"\n        FROM users\n        WHERE id = $1\n      ","rowCount":1,"timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mUser found with ID: 11\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mGraphQL summary query for user 11\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRetrieving summary for user 11\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mCalculating summary for user 11\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST /graphql - ::1\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken extracted successfully from authorization header\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verification attempt\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding user by ID: 11\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 8ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT id, email, password, created_at as \"createdAt\", updated_at as \"updatedAt\"\n        FROM users\n        WHERE id = $1\n      ","rowCount":1,"timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mUser found with ID: 11\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mGraphQL transactions query for user 11\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRetrieving transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding transactions for user 11 with filter:\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 4ms:\u001b[39m","params":"[REDACTED]","query":"SELECT COUNT(*) as count FROM transactions WHERE user_id = $1","rowCount":1,"timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 4ms:\u001b[39m","params":"[REDACTED]","query":"SELECT SUM(amount) as total FROM transactions WHERE user_id = $1 AND type = $2","rowCount":1,"timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 7ms:\u001b[39m","params":"[REDACTED]","query":"SELECT SUM(amount) as total FROM transactions WHERE user_id = $1 AND type = $2","rowCount":1,"timestamp":"2025-06-22 14:46:50:4650"}
+{"balance":0,"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mSummary calculated for user 11:\u001b[39m","timestamp":"2025-06-22 14:46:50:4650","totalExpense":0,"totalIncome":0,"transactionCount":0}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mSummary retrieved successfully for user 11\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mSuccessfully retrieved summary for user 11\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST / - 200 - 21ms\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"duration":21,"ip":"::1","level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRequest metrics:\u001b[39m","method":"POST","statusCode":200,"timestamp":"2025-06-22 14:46:50:4650","url":"/","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 7ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT id, email, password, created_at as \"createdAt\", updated_at as \"updatedAt\"\n        FROM users\n        WHERE id = $1\n      ","rowCount":1,"timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mUser found with ID: 11\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mGraphQL transactions query for user 11\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRetrieving transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding transactions for user 11 with filter:\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 6ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT\n          id,\n          user_id as \"userId\",\n          type,\n          amount,\n          description,\n          date,\n          created_at as \"createdAt\",\n          updated_at as \"updatedAt\"\n        FROM transactions\n        WHERE user_id = $1\n        ORDER BY date DESC\n      ","rowCount":0,"timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFound 0 transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mRetrieved 0 transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mRetrieved 0 transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST / - 200 - 18ms\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"duration":17,"ip":"::1","level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRequest metrics:\u001b[39m","method":"POST","statusCode":200,"timestamp":"2025-06-22 14:46:50:4650","url":"/","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 2ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT\n          id,\n          user_id as \"userId\",\n          type,\n          amount,\n          description,\n          date,\n          created_at as \"createdAt\",\n          updated_at as \"updatedAt\"\n        FROM transactions\n        WHERE user_id = $1\n        ORDER BY date DESC\n      ","rowCount":0,"timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFound 0 transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mRetrieved 0 transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mRetrieved 0 transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST / - 200 - 11ms\u001b[39m","timestamp":"2025-06-22 14:46:50:4650"}
+{"duration":11,"ip":"::1","level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRequest metrics:\u001b[39m","method":"POST","statusCode":200,"timestamp":"2025-06-22 14:46:50:4650","url":"/","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:46:52:4652"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 4ms:\u001b[39m","query":"SELECT NOW() as current_time, version() as version","rowCount":1,"timestamp":"2025-06-22 14:46:52:4652"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37m✅ Database health check passed\u001b[39m","timestamp":"2025-06-22 14:46:52:4652"}
+{"cpu":{"usage":2},"database":"healthy","level":"\u001b[32minfo\u001b[39m","memory":{"percentage":45,"total":59,"used":27},"message":"\u001b[32mSystem metrics:\u001b[39m","timestamp":"2025-06-22 14:46:52:4652","uptime":65.4904035}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection removed from pool\u001b[39m","timestamp":"2025-06-22 14:47:20:4720"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection removed from pool\u001b[39m","timestamp":"2025-06-22 14:47:20:4720"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection removed from pool\u001b[39m","timestamp":"2025-06-22 14:47:20:4720"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection removed from pool\u001b[39m","timestamp":"2025-06-22 14:47:20:4720"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection removed from pool\u001b[39m","timestamp":"2025-06-22 14:47:22:4722"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST /graphql - ::1\u001b[39m","timestamp":"2025-06-22 14:47:29:4729"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken extracted successfully from authorization header\u001b[39m","timestamp":"2025-06-22 14:47:29:4729"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verification attempt\u001b[39m","timestamp":"2025-06-22 14:47:29:4729"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:29:4729"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding user by ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:29:4729"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mNew database connection established\u001b[39m","timestamp":"2025-06-22 14:47:29:4729"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:47:29:4729"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 22ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT id, email, password, created_at as \"createdAt\", updated_at as \"updatedAt\"\n        FROM users\n        WHERE id = $1\n      ","rowCount":1,"timestamp":"2025-06-22 14:47:29:4729"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mUser found with ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:29:4729"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:29:4729"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mGraphQL addTransaction mutation for user 11\u001b[39m","timestamp":"2025-06-22 14:47:29:4729"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mCreating transaction for user 11\u001b[39m","timestamp":"2025-06-22 14:47:29:4729"}
+{"amount":100000,"date":"2025-06-22T00:00:00.000Z","level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mCreating transaction for user 11:\u001b[39m","timestamp":"2025-06-22 14:47:29:4729","type":"INCOME"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:47:29:4729"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 9ms:\u001b[39m","params":"[REDACTED]","query":"\n        INSERT INTO transactions (user_id, type, amount, description, date, created_at, updated_at)\n        VALUES ($1, $2, $3, $4, $5, NOW(), NOW())\n        RETURNING\n          id,\n          user_id as \"userId\",\n          type,\n          amount,\n          description,\n          date,\n          created_at as \"createdAt\",\n          updated_at as \"updatedAt\"\n      ","rowCount":1,"timestamp":"2025-06-22 14:47:29:4729"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mTransaction created successfully with ID: 3\u001b[39m","timestamp":"2025-06-22 14:47:29:4729"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mTransaction created successfully for user 11: 3\u001b[39m","timestamp":"2025-06-22 14:47:29:4729"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mTransaction created successfully via GraphQL for user 11: 3\u001b[39m","timestamp":"2025-06-22 14:47:29:4729"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST / - 200 - 40ms\u001b[39m","timestamp":"2025-06-22 14:47:29:4729"}
+{"duration":41,"ip":"::1","level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRequest metrics:\u001b[39m","method":"POST","statusCode":200,"timestamp":"2025-06-22 14:47:29:4729","url":"/","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST /graphql - ::1\u001b[39m","timestamp":"2025-06-22 14:47:35:4735"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken extracted successfully from authorization header\u001b[39m","timestamp":"2025-06-22 14:47:35:4735"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verification attempt\u001b[39m","timestamp":"2025-06-22 14:47:35:4735"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:35:4735"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding user by ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:35:4735"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:47:35:4735"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 4ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT id, email, password, created_at as \"createdAt\", updated_at as \"updatedAt\"\n        FROM users\n        WHERE id = $1\n      ","rowCount":1,"timestamp":"2025-06-22 14:47:35:4735"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mUser found with ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:35:4735"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:35:4735"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mUser 11 accessed me query\u001b[39m","timestamp":"2025-06-22 14:47:35:4735"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST / - 200 - 7ms\u001b[39m","timestamp":"2025-06-22 14:47:35:4735"}
+{"duration":7,"ip":"::1","level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRequest metrics:\u001b[39m","method":"POST","statusCode":200,"timestamp":"2025-06-22 14:47:35:4735","url":"/","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST /graphql - ::1\u001b[39m","timestamp":"2025-06-22 14:47:35:4735"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken extracted successfully from authorization header\u001b[39m","timestamp":"2025-06-22 14:47:35:4735"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verification attempt\u001b[39m","timestamp":"2025-06-22 14:47:35:4735"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:35:4735"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding user by ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:35:4735"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:47:35:4735"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 3ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT id, email, password, created_at as \"createdAt\", updated_at as \"updatedAt\"\n        FROM users\n        WHERE id = $1\n      ","rowCount":1,"timestamp":"2025-06-22 14:47:35:4735"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mUser found with ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:35:4735"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:35:4735"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mGraphQL transactions query for user 11\u001b[39m","timestamp":"2025-06-22 14:47:35:4735"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRetrieving transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:47:35:4735"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding transactions for user 11 with filter:\u001b[39m","timestamp":"2025-06-22 14:47:35:4735"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:47:35:4735"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 6ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT\n          id,\n          user_id as \"userId\",\n          type,\n          amount,\n          description,\n          date,\n          created_at as \"createdAt\",\n          updated_at as \"updatedAt\"\n        FROM transactions\n        WHERE user_id = $1\n        ORDER BY date DESC\n      ","rowCount":1,"timestamp":"2025-06-22 14:47:35:4735"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFound 1 transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:47:35:4735"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mRetrieved 1 transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:47:35:4735"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mRetrieved 1 transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:47:35:4735"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST / - 200 - 12ms\u001b[39m","timestamp":"2025-06-22 14:47:35:4735"}
+{"duration":12,"ip":"::1","level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRequest metrics:\u001b[39m","method":"POST","statusCode":200,"timestamp":"2025-06-22 14:47:35:4735","url":"/","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST /graphql - ::1\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken extracted successfully from authorization header\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verification attempt\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding user by ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 4ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT id, email, password, created_at as \"createdAt\", updated_at as \"updatedAt\"\n        FROM users\n        WHERE id = $1\n      ","rowCount":1,"timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mUser found with ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mUser 11 accessed me query\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST / - 200 - 7ms\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"duration":7,"ip":"::1","level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRequest metrics:\u001b[39m","method":"POST","statusCode":200,"timestamp":"2025-06-22 14:47:43:4743","url":"/","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST /graphql - ::1\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken extracted successfully from authorization header\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verification attempt\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding user by ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST /graphql - ::1\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken extracted successfully from authorization header\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verification attempt\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding user by ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 3ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT id, email, password, created_at as \"createdAt\", updated_at as \"updatedAt\"\n        FROM users\n        WHERE id = $1\n      ","rowCount":1,"timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mUser found with ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mGraphQL summary query for user 11\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRetrieving summary for user 11\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mCalculating summary for user 11\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST /graphql - ::1\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken extracted successfully from authorization header\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verification attempt\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding user by ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 4ms:\u001b[39m","params":"[REDACTED]","query":"SELECT SUM(amount) as total FROM transactions WHERE user_id = $1 AND type = $2","rowCount":1,"timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mNew database connection established\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mNew database connection established\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mNew database connection established\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mNew database connection established\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 30ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT id, email, password, created_at as \"createdAt\", updated_at as \"updatedAt\"\n        FROM users\n        WHERE id = $1\n      ","rowCount":1,"timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mUser found with ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mGraphQL transactions query for user 11\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRetrieving transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding transactions for user 11 with filter:\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 28ms:\u001b[39m","params":"[REDACTED]","query":"SELECT COUNT(*) as count FROM transactions WHERE user_id = $1","rowCount":1,"timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 29ms:\u001b[39m","params":"[REDACTED]","query":"SELECT SUM(amount) as total FROM transactions WHERE user_id = $1 AND type = $2","rowCount":1,"timestamp":"2025-06-22 14:47:43:4743"}
+{"balance":100000,"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mSummary calculated for user 11:\u001b[39m","timestamp":"2025-06-22 14:47:43:4743","totalExpense":0,"totalIncome":100000,"transactionCount":1}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mSummary retrieved successfully for user 11\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mSuccessfully retrieved summary for user 11\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST / - 200 - 35ms\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"duration":35,"ip":"::1","level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRequest metrics:\u001b[39m","method":"POST","statusCode":200,"timestamp":"2025-06-22 14:47:43:4743","url":"/","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 26ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT id, email, password, created_at as \"createdAt\", updated_at as \"updatedAt\"\n        FROM users\n        WHERE id = $1\n      ","rowCount":1,"timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mUser found with ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mGraphQL transactions query for user 11\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRetrieving transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding transactions for user 11 with filter:\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 4ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT\n          id,\n          user_id as \"userId\",\n          type,\n          amount,\n          description,\n          date,\n          created_at as \"createdAt\",\n          updated_at as \"updatedAt\"\n        FROM transactions\n        WHERE user_id = $1\n        ORDER BY date DESC\n      ","rowCount":1,"timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFound 1 transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mRetrieved 1 transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mRetrieved 1 transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST / - 200 - 36ms\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"duration":37,"ip":"::1","level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRequest metrics:\u001b[39m","method":"POST","statusCode":200,"timestamp":"2025-06-22 14:47:43:4743","url":"/","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 3ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT\n          id,\n          user_id as \"userId\",\n          type,\n          amount,\n          description,\n          date,\n          created_at as \"createdAt\",\n          updated_at as \"updatedAt\"\n        FROM transactions\n        WHERE user_id = $1\n        ORDER BY date DESC\n      ","rowCount":1,"timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFound 1 transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mRetrieved 1 transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mRetrieved 1 transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST / - 200 - 34ms\u001b[39m","timestamp":"2025-06-22 14:47:43:4743"}
+{"duration":35,"ip":"::1","level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRequest metrics:\u001b[39m","method":"POST","statusCode":200,"timestamp":"2025-06-22 14:47:43:4743","url":"/","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST /graphql - ::1\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken extracted successfully from authorization header\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verification attempt\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding user by ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 3ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT id, email, password, created_at as \"createdAt\", updated_at as \"updatedAt\"\n        FROM users\n        WHERE id = $1\n      ","rowCount":1,"timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mUser found with ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mUser 11 accessed me query\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST / - 200 - 5ms\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"duration":5,"ip":"::1","level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRequest metrics:\u001b[39m","method":"POST","statusCode":200,"timestamp":"2025-06-22 14:47:45:4745","url":"/","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST /graphql - ::1\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken extracted successfully from authorization header\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verification attempt\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding user by ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST /graphql - ::1\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken extracted successfully from authorization header\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verification attempt\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding user by ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST /graphql - ::1\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken extracted successfully from authorization header\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verification attempt\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding user by ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 3ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT id, email, password, created_at as \"createdAt\", updated_at as \"updatedAt\"\n        FROM users\n        WHERE id = $1\n      ","rowCount":1,"timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mUser found with ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mGraphQL summary query for user 11\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRetrieving summary for user 11\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mCalculating summary for user 11\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 3ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT id, email, password, created_at as \"createdAt\", updated_at as \"updatedAt\"\n        FROM users\n        WHERE id = $1\n      ","rowCount":1,"timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mUser found with ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mGraphQL transactions query for user 11\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRetrieving transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding transactions for user 11 with filter:\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 3ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT id, email, password, created_at as \"createdAt\", updated_at as \"updatedAt\"\n        FROM users\n        WHERE id = $1\n      ","rowCount":1,"timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mUser found with ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mGraphQL transactions query for user 11\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRetrieving transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding transactions for user 11 with filter:\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 4ms:\u001b[39m","params":"[REDACTED]","query":"SELECT SUM(amount) as total FROM transactions WHERE user_id = $1 AND type = $2","rowCount":1,"timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 5ms:\u001b[39m","params":"[REDACTED]","query":"SELECT COUNT(*) as count FROM transactions WHERE user_id = $1","rowCount":1,"timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 5ms:\u001b[39m","params":"[REDACTED]","query":"SELECT SUM(amount) as total FROM transactions WHERE user_id = $1 AND type = $2","rowCount":1,"timestamp":"2025-06-22 14:47:45:4745"}
+{"balance":100000,"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mSummary calculated for user 11:\u001b[39m","timestamp":"2025-06-22 14:47:45:4745","totalExpense":0,"totalIncome":100000,"transactionCount":1}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mSummary retrieved successfully for user 11\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mSuccessfully retrieved summary for user 11\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST / - 200 - 10ms\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"duration":10,"ip":"::1","level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRequest metrics:\u001b[39m","method":"POST","statusCode":200,"timestamp":"2025-06-22 14:47:45:4745","url":"/","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 3ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT\n          id,\n          user_id as \"userId\",\n          type,\n          amount,\n          description,\n          date,\n          created_at as \"createdAt\",\n          updated_at as \"updatedAt\"\n        FROM transactions\n        WHERE user_id = $1\n        ORDER BY date DESC\n      ","rowCount":1,"timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFound 1 transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mRetrieved 1 transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mRetrieved 1 transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST / - 200 - 10ms\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"duration":10,"ip":"::1","level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRequest metrics:\u001b[39m","method":"POST","statusCode":200,"timestamp":"2025-06-22 14:47:45:4745","url":"/","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 6ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT\n          id,\n          user_id as \"userId\",\n          type,\n          amount,\n          description,\n          date,\n          created_at as \"createdAt\",\n          updated_at as \"updatedAt\"\n        FROM transactions\n        WHERE user_id = $1\n        ORDER BY date DESC\n      ","rowCount":1,"timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFound 1 transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mRetrieved 1 transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mRetrieved 1 transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST / - 200 - 11ms\u001b[39m","timestamp":"2025-06-22 14:47:45:4745"}
+{"duration":12,"ip":"::1","level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRequest metrics:\u001b[39m","method":"POST","statusCode":200,"timestamp":"2025-06-22 14:47:45:4745","url":"/","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:47:52:4752"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 4ms:\u001b[39m","query":"SELECT NOW() as current_time, version() as version","rowCount":1,"timestamp":"2025-06-22 14:47:52:4752"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37m✅ Database health check passed\u001b[39m","timestamp":"2025-06-22 14:47:52:4752"}
+{"cpu":{"usage":2},"database":"healthy","level":"\u001b[32minfo\u001b[39m","memory":{"percentage":87,"total":28,"used":25},"message":"\u001b[32mSystem metrics:\u001b[39m","timestamp":"2025-06-22 14:47:52:4752","uptime":125.491292834}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST /graphql - ::1\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken extracted successfully from authorization header\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verification attempt\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding user by ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 5ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT id, email, password, created_at as \"createdAt\", updated_at as \"updatedAt\"\n        FROM users\n        WHERE id = $1\n      ","rowCount":1,"timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mUser found with ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mUser 11 accessed me query\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST / - 200 - 5ms\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"duration":6,"ip":"::1","level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRequest metrics:\u001b[39m","method":"POST","statusCode":200,"timestamp":"2025-06-22 14:47:57:4757","url":"/","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST /graphql - ::1\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken extracted successfully from authorization header\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verification attempt\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding user by ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST /graphql - ::1\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken extracted successfully from authorization header\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verification attempt\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding user by ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 5ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT id, email, password, created_at as \"createdAt\", updated_at as \"updatedAt\"\n        FROM users\n        WHERE id = $1\n      ","rowCount":1,"timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mUser found with ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mGraphQL summary query for user 11\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRetrieving summary for user 11\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mCalculating summary for user 11\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST /graphql - ::1\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken extracted successfully from authorization header\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verification attempt\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding user by ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 3ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT id, email, password, created_at as \"createdAt\", updated_at as \"updatedAt\"\n        FROM users\n        WHERE id = $1\n      ","rowCount":1,"timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mUser found with ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mGraphQL transactions query for user 11\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRetrieving transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding transactions for user 11 with filter:\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 2ms:\u001b[39m","params":"[REDACTED]","query":"SELECT COUNT(*) as count FROM transactions WHERE user_id = $1","rowCount":1,"timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 2ms:\u001b[39m","params":"[REDACTED]","query":"SELECT SUM(amount) as total FROM transactions WHERE user_id = $1 AND type = $2","rowCount":1,"timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 2ms:\u001b[39m","params":"[REDACTED]","query":"SELECT SUM(amount) as total FROM transactions WHERE user_id = $1 AND type = $2","rowCount":1,"timestamp":"2025-06-22 14:47:57:4757"}
+{"balance":100000,"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mSummary calculated for user 11:\u001b[39m","timestamp":"2025-06-22 14:47:57:4757","totalExpense":0,"totalIncome":100000,"transactionCount":1}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mSummary retrieved successfully for user 11\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mSuccessfully retrieved summary for user 11\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST / - 200 - 10ms\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"duration":10,"ip":"::1","level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRequest metrics:\u001b[39m","method":"POST","statusCode":200,"timestamp":"2025-06-22 14:47:57:4757","url":"/","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 3ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT id, email, password, created_at as \"createdAt\", updated_at as \"updatedAt\"\n        FROM users\n        WHERE id = $1\n      ","rowCount":1,"timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mUser found with ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mToken verified successfully for user ID: 11\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mGraphQL transactions query for user 11\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRetrieving transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFinding transactions for user 11 with filter:\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 6ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT\n          id,\n          user_id as \"userId\",\n          type,\n          amount,\n          description,\n          date,\n          created_at as \"createdAt\",\n          updated_at as \"updatedAt\"\n        FROM transactions\n        WHERE user_id = $1\n        ORDER BY date DESC\n      ","rowCount":1,"timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFound 1 transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mRetrieved 1 transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mRetrieved 1 transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST / - 200 - 12ms\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"duration":13,"ip":"::1","level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRequest metrics:\u001b[39m","method":"POST","statusCode":200,"timestamp":"2025-06-22 14:47:57:4757","url":"/","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 4ms:\u001b[39m","params":"[REDACTED]","query":"\n        SELECT\n          id,\n          user_id as \"userId\",\n          type,\n          amount,\n          description,\n          date,\n          created_at as \"createdAt\",\n          updated_at as \"updatedAt\"\n        FROM transactions\n        WHERE user_id = $1\n        ORDER BY date DESC\n      ","rowCount":1,"timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mFound 1 transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mRetrieved 1 transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mRetrieved 1 transactions for user 11\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"level":"\u001b[35mhttp\u001b[39m","message":"\u001b[35mPOST / - 200 - 10ms\u001b[39m","timestamp":"2025-06-22 14:47:57:4757"}
+{"duration":10,"ip":"::1","level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRequest metrics:\u001b[39m","method":"POST","statusCode":200,"timestamp":"2025-06-22 14:47:57:4757","url":"/","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection removed from pool\u001b[39m","timestamp":"2025-06-22 14:48:27:4827"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection removed from pool\u001b[39m","timestamp":"2025-06-22 14:48:27:4827"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection removed from pool\u001b[39m","timestamp":"2025-06-22 14:48:27:4827"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection removed from pool\u001b[39m","timestamp":"2025-06-22 14:48:27:4827"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection removed from pool\u001b[39m","timestamp":"2025-06-22 14:48:27:4827"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mNew database connection established\u001b[39m","timestamp":"2025-06-22 14:48:52:4852"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:48:52:4852"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 25ms:\u001b[39m","query":"SELECT NOW() as current_time, version() as version","rowCount":1,"timestamp":"2025-06-22 14:48:52:4852"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37m✅ Database health check passed\u001b[39m","timestamp":"2025-06-22 14:48:52:4852"}
+{"cpu":{"usage":2},"database":"healthy","level":"\u001b[32minfo\u001b[39m","memory":{"percentage":87,"total":29,"used":25},"message":"\u001b[32mSystem metrics:\u001b[39m","timestamp":"2025-06-22 14:48:52:4852","uptime":185.493111459}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:49:52:4952"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 9ms:\u001b[39m","query":"SELECT NOW() as current_time, version() as version","rowCount":1,"timestamp":"2025-06-22 14:49:52:4952"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37m✅ Database health check passed\u001b[39m","timestamp":"2025-06-22 14:49:52:4952"}
+{"cpu":{"usage":2},"database":"healthy","level":"\u001b[32minfo\u001b[39m","memory":{"percentage":87,"total":29,"used":25},"message":"\u001b[32mSystem metrics:\u001b[39m","timestamp":"2025-06-22 14:49:52:4952","uptime":245.495432834}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:50:52:5052"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 8ms:\u001b[39m","query":"SELECT NOW() as current_time, version() as version","rowCount":1,"timestamp":"2025-06-22 14:50:52:5052"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37m✅ Database health check passed\u001b[39m","timestamp":"2025-06-22 14:50:53:5053"}
+{"cpu":{"usage":2},"database":"healthy","level":"\u001b[32minfo\u001b[39m","memory":{"percentage":88,"total":29,"used":26},"message":"\u001b[32mSystem metrics:\u001b[39m","timestamp":"2025-06-22 14:50:53:5053","uptime":305.497136709}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:51:52:5152"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 5ms:\u001b[39m","query":"SELECT NOW() as current_time, version() as version","rowCount":1,"timestamp":"2025-06-22 14:51:52:5152"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37m✅ Database health check passed\u001b[39m","timestamp":"2025-06-22 14:51:52:5152"}
+{"cpu":{"usage":2},"database":"healthy","level":"\u001b[32minfo\u001b[39m","memory":{"percentage":89,"total":28,"used":25},"message":"\u001b[32mSystem metrics:\u001b[39m","timestamp":"2025-06-22 14:51:52:5152","uptime":365.49849975}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mConnection acquired from pool\u001b[39m","timestamp":"2025-06-22 14:52:52:5252"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37mQuery executed in 4ms:\u001b[39m","query":"SELECT NOW() as current_time, version() as version","rowCount":1,"timestamp":"2025-06-22 14:52:52:5252"}
+{"level":"\u001b[37mdebug\u001b[39m","message":"\u001b[37m✅ Database health check passed\u001b[39m","timestamp":"2025-06-22 14:52:52:5252"}
+{"cpu":{"usage":2},"database":"healthy","level":"\u001b[32minfo\u001b[39m","memory":{"percentage":89,"total":28,"used":25},"message":"\u001b[32mSystem metrics:\u001b[39m","timestamp":"2025-06-22 14:52:52:5252","uptime":425.498653917}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mReceived SIGINT. Starting graceful shutdown...\u001b[39m","timestamp":"2025-06-22 14:52:56:5256"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mHTTP server closed\u001b[39m","timestamp":"2025-06-22 14:52:56:5256"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mReceived SIGINT. Starting graceful shutdown...\u001b[39m","timestamp":"2025-06-22 14:52:56:5256"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mHTTP server closed\u001b[39m","timestamp":"2025-06-22 14:52:56:5256"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mApollo server stopped\u001b[39m","timestamp":"2025-06-22 14:52:56:5256"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Database connections closed successfully\u001b[39m","timestamp":"2025-06-22 14:52:56:5256"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Database disconnected successfully\u001b[39m","timestamp":"2025-06-22 14:52:56:5256"}
