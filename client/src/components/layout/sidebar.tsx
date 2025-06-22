@@ -1,41 +1,40 @@
-import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent } from '@/components/ui/sheet';
-import { 
-  Home, 
-  Plus, 
-  List, 
-  BarChart3, 
-  Settings,
-  X
-} from 'lucide-react';
-import { useUIStore } from '@/store/ui-store';
-import { Link, useLocation } from 'react-router-dom';
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetDescription,
+} from "@/components/ui/sheet";
+import { Home, Plus, List, BarChart3, Settings, X } from "lucide-react";
+import { useUIStore } from "@/store/ui-store";
+import { Link, useLocation } from "react-router-dom";
 
 const navigation = [
   {
-    name: 'Dashboard',
-    href: '/dashboard',
+    name: "Dashboard",
+    href: "/dashboard",
     icon: Home,
   },
   {
-    name: 'Add Transaction',
-    href: '/transactions/new',
+    name: "Add Transaction",
+    href: "/transactions/new",
     icon: Plus,
   },
   {
-    name: 'Transactions',
-    href: '/transactions',
+    name: "Transactions",
+    href: "/transactions",
     icon: List,
   },
   {
-    name: 'Analytics',
-    href: '/analytics',
+    name: "Analytics",
+    href: "/analytics",
     icon: BarChart3,
   },
   {
-    name: 'Settings',
-    href: '/settings',
+    name: "Settings",
+    href: "/settings",
     icon: Settings,
   },
 ];
@@ -78,10 +77,10 @@ export function Sidebar({ className }: SidebarProps) {
               }}
             >
               <Button
-                variant={isActive ? 'secondary' : 'ghost'}
+                variant={isActive ? "secondary" : "ghost"}
                 className={cn(
-                  'w-full justify-start',
-                  isActive && 'bg-secondary'
+                  "w-full justify-start",
+                  isActive && "bg-secondary"
                 )}
               >
                 <item.icon className="mr-2 h-4 w-4" />
@@ -99,7 +98,7 @@ export function Sidebar({ className }: SidebarProps) {
       {/* Desktop Sidebar */}
       <div
         className={cn(
-          'hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0',
+          "hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0",
           className
         )}
       >
@@ -111,6 +110,12 @@ export function Sidebar({ className }: SidebarProps) {
       {/* Mobile Sidebar */}
       <Sheet open={sidebarOpen} onOpenChange={setSidebarOpen}>
         <SheetContent side="left" className="p-0 w-64">
+          <SheetHeader className="sr-only">
+            <SheetTitle>Navigation Menu</SheetTitle>
+            <SheetDescription>
+              Navigate through the application using the menu items below
+            </SheetDescription>
+          </SheetHeader>
           <SidebarContent />
         </SheetContent>
       </Sheet>

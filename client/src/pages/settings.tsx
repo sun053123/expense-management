@@ -1,6 +1,12 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { useAuthStore } from '@/store/auth-store';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { useAuthStore } from "@/store/auth-store";
 
 export function Settings() {
   const { user } = useAuthStore();
@@ -13,7 +19,7 @@ export function Settings() {
           Manage your account settings and preferences
         </p>
       </div>
-      
+
       <div className="grid gap-6">
         <Card>
           <CardHeader>
@@ -30,7 +36,15 @@ export function Settings() {
             <div>
               <label className="text-sm font-medium">Member since</label>
               <p className="text-sm text-muted-foreground">
-                {user?.createdAt ? new Date(user.createdAt).toLocaleDateString() : 'N/A'}
+                {user?.createdAt
+                  ? (() => {
+                      try {
+                        return new Date(user.createdAt).toLocaleDateString();
+                      } catch {
+                        return "N/A";
+                      }
+                    })()
+                  : "N/A"}
               </p>
             </div>
           </CardContent>
@@ -39,9 +53,7 @@ export function Settings() {
         <Card>
           <CardHeader>
             <CardTitle>Preferences</CardTitle>
-            <CardDescription>
-              Customize your experience
-            </CardDescription>
+            <CardDescription>Customize your experience</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
@@ -50,14 +62,18 @@ export function Settings() {
                   <p className="font-medium">Currency</p>
                   <p className="text-sm text-muted-foreground">USD ($)</p>
                 </div>
-                <Button variant="outline" size="sm">Change</Button>
+                <Button variant="outline" size="sm">
+                  Change
+                </Button>
               </div>
               <div className="flex items-center justify-between">
                 <div>
                   <p className="font-medium">Date Format</p>
                   <p className="text-sm text-muted-foreground">MM/DD/YYYY</p>
                 </div>
-                <Button variant="outline" size="sm">Change</Button>
+                <Button variant="outline" size="sm">
+                  Change
+                </Button>
               </div>
             </div>
           </CardContent>

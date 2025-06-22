@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useQuery, useMutation, useApolloClient } from "@apollo/client";
-import { format } from "date-fns";
 import { Edit, Trash2, Plus, Filter } from "lucide-react";
+import { formatTransactionDate } from "@/utils/date-helpers";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -203,14 +203,16 @@ export function TransactionList() {
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <Select
-              value={filter.type || ""}
-              onValueChange={(value) => handleFilterChange("type", value)}
+              value={filter.type || "all"}
+              onValueChange={(value) =>
+                handleFilterChange("type", value === "all" ? "" : value)
+              }
             >
               <SelectTrigger>
                 <SelectValue placeholder="All Types" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Types</SelectItem>
+                <SelectItem value="all">All Types</SelectItem>
                 <SelectItem value={TransactionType.INCOME}>Income</SelectItem>
                 <SelectItem value={TransactionType.EXPENSE}>Expense</SelectItem>
               </SelectContent>
@@ -288,7 +290,7 @@ export function TransactionList() {
                         {transaction.description || "No description"}
                       </p>
                       <p className="text-sm text-muted-foreground">
-                        {format(new Date(transaction.date), "MMM dd, yyyy")}
+                        {formatTransactionDate(transaction.date)}
                       </p>
                     </div>
                   </div>

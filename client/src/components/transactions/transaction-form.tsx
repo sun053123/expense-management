@@ -4,7 +4,7 @@ import { z } from "zod";
 import { useMutation, useApolloClient } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
 import { Loader2 } from "lucide-react";
-import { format } from "date-fns";
+import { formatDateForInput } from "@/utils/date-helpers";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -91,9 +91,7 @@ export function TransactionForm({
       type: transaction?.type || TransactionType.EXPENSE,
       amount: transaction?.amount?.toString() || "",
       description: transaction?.description || "",
-      date: transaction?.date
-        ? format(new Date(transaction.date), "yyyy-MM-dd")
-        : format(new Date(), "yyyy-MM-dd"),
+      date: formatDateForInput(transaction?.date),
     },
     mode: "onChange",
   });

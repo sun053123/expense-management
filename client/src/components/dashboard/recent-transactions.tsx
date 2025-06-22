@@ -1,19 +1,22 @@
-import { useQuery } from '@apollo/client';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { ArrowUpRight, ArrowDownRight, Plus } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { format } from 'date-fns';
-import { GET_TRANSACTIONS } from '@/graphql/queries';
-import { TransactionType, type TransactionsQueryResponse } from '@/types';
+import { useQuery } from "@apollo/client";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { ArrowUpRight, ArrowDownRight, Plus } from "lucide-react";
+import { Link } from "react-router-dom";
+import { GET_TRANSACTIONS } from "@/graphql/queries";
+import { TransactionType, type TransactionsQueryResponse } from "@/types";
+import { formatTransactionDate } from "@/utils/date-helpers";
 
 export function RecentTransactions() {
-  const { data, loading, error } = useQuery<TransactionsQueryResponse>(GET_TRANSACTIONS, {
-    variables: {
-      filter: {}, // Get all transactions, we'll limit on the frontend
-    },
-  });
+  const { data, loading, error } = useQuery<TransactionsQueryResponse>(
+    GET_TRANSACTIONS,
+    {
+      variables: {
+        filter: {}, // Get all transactions, we'll limit on the frontend
+      },
+    }
+  );
 
   if (loading) {
     return (
@@ -46,21 +49,37 @@ export function RecentTransactions() {
           <CardTitle>Recent Transactions</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-destructive">Error loading transactions: {error.message}</p>
+          <p className="text-destructive">
+            Error loading transactions: {error.message}
+          </p>
         </CardContent>
       </Card>
     );
   }
 
   const transactions = data?.transactions || [];
-  const recentTransactions = transactions
-    .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+  const recentTransactions = [...transactions] // Create a copy to avoid mutating Apollo cache
+    .sort((a, b) => {
+      try {
+        const dateA = new Date(b.createdAt).getTime();
+        const dateB = new Date(a.createdAt).getTime();
+
+        // Check if dates are valid
+        if (isNaN(dateA) || isNaN(dateB)) {
+          return 0; // Keep original order if dates are invalid
+        }
+
+        return dateA - dateB;
+      } catch {
+        return 0; // Keep original order if there's an error
+      }
+    })
     .slice(0, 5);
 
   const formatCurrency = (amount: number) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
     }).format(amount);
   };
 
@@ -95,11 +114,13 @@ export function RecentTransactions() {
           <div className="space-y-4">
             {recentTransactions.map((transaction) => (
               <div key={transaction.id} className="flex items-center space-x-4">
-                <div className={`flex h-10 w-10 items-center justify-center rounded-full ${
-                  transaction.type === TransactionType.INCOME 
-                    ? 'bg-green-100 text-green-600' 
-                    : 'bg-red-100 text-red-600'
-                }`}>
+                <div
+                  className={`flex h-10 w-10 items-center justify-center rounded-full ${
+                    transaction.type === TransactionType.INCOME
+                      ? "bg-green-100 text-green-600"
+                      : "bg-red-100 text-red-600"
+                  }`}
+                >
                   {transaction.type === TransactionType.INCOME ? (
                     <ArrowUpRight className="h-4 w-4" />
                   ) : (
@@ -108,17 +129,21 @@ export function RecentTransactions() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium truncate">
-                    {transaction.description || 'No description'}
+                    {transaction.description || "No description"}
                   </p>
                   <p className="text-xs text-muted-foreground">
-                    {format(new Date(transaction.date), 'MMM dd, yyyy')}
+                    {formatTransactionDate(transaction.date)}
                   </p>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Badge
-                    variant={transaction.type === TransactionType.INCOME ? 'default' : 'destructive'}
+                    variant={
+                      transaction.type === TransactionType.INCOME
+                        ? "default"
+                        : "destructive"
+                    }
                   >
-                    {transaction.type === TransactionType.INCOME ? '+' : '-'}
+                    {transaction.type === TransactionType.INCOME ? "+" : "-"}
                     {formatCurrency(transaction.amount)}
                   </Badge>
                 </div>
